@@ -6,7 +6,7 @@ export const SITE_METADATA = {
     "Không gian số của Bác sĩ Hữu – nơi ghi lại hành trình chinh phục lập trình, chia sẻ kiến thức về Web Development và các công cụ hỗ trợ y khoa lâm sàng cho cộng đồng.",
   language: "en-us",
   theme: "system",
-  siteUrl: "https://localhost:3000",
+  siteUrl: "https://luyenthisdh.vercel.app",
   siteRepo: "https://github.com/22thag6/luyenthisdh",
   siteLogo: `${process.env.BASE_PATH || ""}/static/images/logo.jpg`,
   socialBanner: `${process.env.BASE_PATH || ""}/static/images/twitter-card.jpeg`,

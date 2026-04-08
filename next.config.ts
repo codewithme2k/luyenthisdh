@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import { withContentlayer } from "next-contentlayer2";
-import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   reactCompiler: true,
@@ -22,10 +22,7 @@ const nextConfig: NextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.plugins = [...config.plugins, new PrismaPlugin()];
-    }
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
       use: [
