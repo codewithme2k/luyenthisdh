@@ -6,7 +6,7 @@ import {
   useBlogStats,
   useUpdateBlogStats,
 } from "@/shared/hooks/use-blog-stats";
-import { StatsType } from "@/generated/prisma/enums";
+import { StatsType } from "@/generated/prisma";
 
 export function ViewsCounter({
   type,

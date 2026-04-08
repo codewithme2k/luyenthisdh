@@ -11,7 +11,7 @@ import { useSidebar } from "./SidebarProvider";
 
 import { SITE_METADATA } from "@/shared/site-metadata";
 import { Logo } from "./logo";
-import { EUserRole } from "@/generated/prisma/enums";
+import { EUserRole } from "@/generated/prisma";
 
 function filterMenuByRole(menu: MenuSection[], role: EUserRole): MenuSection[] {
   return menu

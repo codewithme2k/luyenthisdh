@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { EOrderStatus } from "@/generated/prisma/enums";
+import { EOrderStatus } from "@/generated/prisma";
 
 export const POSTS_PER_PAGE = 9;
 

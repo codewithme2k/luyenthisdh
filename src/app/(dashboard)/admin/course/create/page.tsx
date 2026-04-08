@@ -1,6 +1,6 @@
 import CreateCourse from "@/components/admin/course/CreateCourse";
-import { ESubjectStatus } from "@/generated/prisma/enums";
-import db from "@/lib/prisma";
+import { ESubjectStatus } from "@/generated/prisma";
+import { db } from "@/lib/prisma";
 
 export default async function TestPage() {
   const subjects = await db.subject.findMany({

@@ -1,8 +1,10 @@
 "use server";
+
 import { db } from "@/lib/prisma";
 import { currentUser } from "../hooks/auth";
 import slugify from "slugify";
 
+// ================= CHANGE STATUS =================
 export async function changeCourseStatus(
   id: string,
   status: "DRAFT" | "PUBLISHED",
@@ -11,6 +13,7 @@ export async function changeCourseStatus(
   if (!user || user.role !== "ADMIN") {
     return { success: false, message: "Unauthorized" };
   }
+
   try {
     const course = await db.course.findUnique({ where: { id } });
 
@@ -39,6 +42,7 @@ export async function changeCourseStatus(
   }
 }
 
+// ================= CREATE LECTURE =================
 export async function updateCourseWithLecture(
   title: string,
   courseId: string,
@@ -48,42 +52,41 @@ export async function updateCourseWithLecture(
   if (!user || user.role !== "ADMIN") {
     return { success: false, message: "Unauthorized" };
   }
+
   try {
     const course = await db.course.findUnique({ where: { id: courseId } });
+
     if (!course) {
       return {
         success: false,
         message: "Không tìm thấy khóa học",
       };
     }
+
     const newLecture = await db.lecture.create({
       data: {
-        title: title,
-        courseId: courseId,
-        order: order,
+        title,
+        courseId, // ✅ relation chuẩn
+        order,
         createdAt: new Date(),
       },
     });
-    await db.course.update({
-      where: { id: courseId },
-      data: {
-        lectureId: {
-          push: newLecture.id,
-        },
-      },
-    });
+
     return {
       success: true,
       message: "Tạo Lecture thành công",
-      lecture: newLecture, // 👈 thêm dòng này
+      lecture: newLecture,
     };
   } catch (error) {
+    console.error(error);
     return {
       success: false,
-      message: error,
+      message: "Có lỗi xảy ra",
     };
   }
 }
+
+// ================= CREATE COURSE =================
 export async function createCourse(data: {
   name: string;
   slug: string;
@@ -113,26 +116,27 @@ export async function createCourse(data: {
       },
     });
 
-    return { success: true, message: course };
+    return { success: true, data: course };
   } catch (error) {
     console.error("Error creating course:", error);
     return { success: false, message: "Không thể tạo khóa học" };
   }
 }
 
+// ================= DELETE COURSE =================
 export async function deleteCourse(courseId: string) {
   try {
-    // Delete all lessons first
+    // Xóa lesson trước
     await db.lesson.deleteMany({
       where: { courseId },
     });
 
-    // Delete all lectures
+    // Xóa lecture
     await db.lecture.deleteMany({
       where: { courseId },
     });
 
-    // Delete the course
+    // Xóa course
     await db.course.delete({
       where: { id: courseId },
     });
@@ -143,6 +147,8 @@ export async function deleteCourse(courseId: string) {
     return { success: false, error: "Không thể xóa khóa học" };
   }
 }
+
+// ================= TYPES =================
 interface UploadLectureData {
   title: string;
   lessons: {
@@ -154,6 +160,7 @@ interface UploadLectureData {
   }[];
 }
 
+// ================= UPSERT COURSE CONTENT =================
 export async function uploadCourseLectureLesson(
   courseId: string,
   userId: string,
@@ -167,15 +174,15 @@ export async function uploadCourseLectureLesson(
 
   try {
     const course = await db.course.findUnique({ where: { id: courseId } });
+
     if (!course) {
       return { success: false, message: "Không tìm thấy khóa học" };
     }
 
-    const newLectureIds: string[] = [];
-
     for (let i = 0; i < lectures.length; i++) {
       const lectureData = lectures[i];
 
+      // ===== UPSERT LECTURE =====
       let lecture = await db.lecture.findFirst({
         where: {
           title: lectureData.title,
@@ -186,9 +193,7 @@ export async function uploadCourseLectureLesson(
       if (lecture) {
         lecture = await db.lecture.update({
           where: { id: lecture.id },
-          data: {
-            order: i,
-          },
+          data: { order: i },
         });
       } else {
         lecture = await db.lecture.create({
@@ -201,13 +206,17 @@ export async function uploadCourseLectureLesson(
         });
       }
 
-      newLectureIds.push(lecture.id);
-
+      // ===== UPSERT LESSON =====
       for (let j = 0; j < lectureData.lessons.length; j++) {
         const lesson = lectureData.lessons[j];
 
-        const createSlug = slugify(lesson.title, { lower: true, locale: "vi" });
+        const createSlug = slugify(lesson.title, {
+          lower: true,
+          locale: "vi",
+        });
+
         const slug = `${createSlug}-${Math.random().toString(36).slice(-4)}`;
+
         const existingLesson = await db.lesson.findFirst({
           where: {
             title: lesson.title,
@@ -236,7 +245,7 @@ export async function uploadCourseLectureLesson(
               type: lesson.type,
               video: lesson.video || "",
               iframe: lesson.iframe || "",
-              isFree: lesson.isFree ?? false, // ✅ THÊM DÒNG NÀY
+              isFree: lesson.isFree ?? false,
               duration: 0,
               content: "",
               status: "draft",
@@ -248,105 +257,15 @@ export async function uploadCourseLectureLesson(
       }
     }
 
-    await db.course.update({
-      where: { id: courseId },
-      data: {
-        lectureId: {
-          set: newLectureIds,
-        },
-      },
-    });
-
-    return { success: true, message: "Đã ghi đè thành công nội dung khóa học" };
+    return {
+      success: true,
+      message: "Đã cập nhật nội dung khóa học",
+    };
   } catch (error) {
     console.error("uploadCourseLectureLesson error:", error);
-    return { success: false, message: "Không thể upload nội dung khóa học" };
+    return {
+      success: false,
+      message: "Không thể upload nội dung khóa học",
+    };
   }
 }
-
-// export async function getCourseWithContent(courseId: string) {
-//   try {
-//     const course = await db.course.findUnique({
-//       where: { id: courseId },
-//       include: {
-//         Lecture: {
-//           include: {
-//             lessons: {
-//               orderBy: { order: "asc" },
-//             },
-//           },
-//           orderBy: { order: "asc" },
-//         },
-//         Subject: true,
-//         Author: true,
-//       },
-//     });
-
-//     return { success: true, data: course };
-//   } catch (error) {
-//     console.error("Error getting course:", error);
-//     return { success: false, error: "Không thể lấy thông tin khóa học" };
-//   }
-// }
-
-// export async function updateCourseStats(courseId: string) {
-//   try {
-//     // Calculate total lessons and duration
-//     const stats = await db.lesson.aggregate({
-//       where: { courseId },
-//       _count: { id: true },
-//       _sum: { duration: true },
-//     });
-
-//     const course = await db.course.update({
-//       where: { id: courseId },
-//       data: {
-//         // You can add custom fields for stats if needed
-//         updatedAt: new Date(),
-//       },
-//     });
-
-//     return {
-//       success: true,
-//       data: {
-//         totalLessons: stats._count.id,
-//         totalDuration: stats._sum.duration || 0,
-//       },
-//     };
-//   } catch (error) {
-//     console.error("Error updating course stats:", error);
-//     return { success: false, error: "Không thể cập nhật thống kê khóa học" };
-//   }
-// }
-// export async function updateCourse(
-//   courseId: string,
-//   data: {
-//     name?: string;
-//     slug?: string;
-//     description?: string;
-//     price?: number;
-//     salePrice?: number;
-//     status?: string;
-//     level?: string;
-//     label?: string;
-//   }
-// ) {
-//   try {
-//     const course = await db.course.update({
-//       where: { id: courseId },
-//       data,
-//       include: {
-//         Lecture: {
-//           include: {
-//             lessons: true,
-//           },
-//         },
-//       },
-//     });
-
-//     return { success: true, data: course };
-//   } catch (error) {
-//     console.error("Error updating course:", error);
-//     return { success: false, error: "Không thể cập nhật khóa học" };
-//   }
-// }

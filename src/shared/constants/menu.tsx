@@ -10,8 +10,9 @@ import {
   Package,
   User,
 } from "lucide-react";
-import { EUserRole } from "@/generated/prisma/enums";
+
 import { SITE_METADATA } from "../site-metadata";
+import { EUserRole } from "@/generated/prisma";
 
 export interface MenuItem {
   title: string;

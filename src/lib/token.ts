@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { v4 as uuidv4 } from "uuid";
-import db from "./prisma";
+import { db } from "./prisma";
 export const getPasswordResetTokenByEmail = async (email: string) => {
   try {
     const passwordResetToken = await db.passwordResetToken.findFirst({
@@ -82,7 +82,7 @@ export const generatePasswordResetToken = async (email: string) => {
 
 export const generateVerificationToken = async (
   email: string,
-  userId: string
+  userId: string,
 ) => {
   const token = uuidv4();
   const expires = new Date(new Date().getTime() + 3600 * 1000);

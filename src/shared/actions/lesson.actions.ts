@@ -1,6 +1,6 @@
 "use server";
 
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import slugify from "slugify";
 
@@ -68,7 +68,7 @@ export async function updateLesson(
     status?: string;
     order?: number;
     isFree: boolean;
-  }
+  },
 ) {
   try {
     const lesson = await db.lesson.update({
@@ -112,7 +112,7 @@ export async function deleteLesson(lessonId: string) {
 
 export async function reorderLessons(
   lectureId: string,
-  lessonOrders: { id: string; order: number }[]
+  lessonOrders: { id: string; order: number }[],
 ) {
   try {
     // Update all lesson orders in a transaction
@@ -121,8 +121,8 @@ export async function reorderLessons(
         db.lesson.update({
           where: { id: item.id },
           data: { order: item.order },
-        })
-      )
+        }),
+      ),
     );
 
     revalidatePath(`/admin/course/content`);
@@ -136,7 +136,7 @@ export async function reorderLessons(
 export async function moveLessonToLecture(
   lessonId: string,
   newLectureId: string,
-  newOrder?: number
+  newOrder?: number,
 ) {
   try {
     // Get the course ID from the new lecture
@@ -240,7 +240,7 @@ export async function updateLessonViews(lessonId: string) {
 
 export async function bulkUpdateLessonStatus(
   lessonIds: string[],
-  status: string
+  status: string,
 ) {
   try {
     await db.lesson.updateMany({

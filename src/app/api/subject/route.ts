@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import slugify from "slugify";
 import { currentRole } from "@/shared/hooks/auth";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { Subject } from "@/generated/prisma/client";
 
 export async function POST(req: Request) {

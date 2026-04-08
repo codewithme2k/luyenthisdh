@@ -1,6 +1,6 @@
 "use server";
 import EditCourseForm from "@/components/admin/course/EditCourse";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 
 export default async function page({
   params,

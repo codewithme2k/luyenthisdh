@@ -1,5 +1,5 @@
 import LessonViewClient from "@/components/course/LessonViewClient";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { CheckMemberShip } from "@/shared/actions/membership";
 import { notFound } from "next/navigation";
 

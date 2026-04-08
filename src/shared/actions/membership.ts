@@ -1,9 +1,9 @@
 "use server";
 
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { currentUser } from "../hooks/auth";
 import { sendTelegramMessage } from "@/lib/sendTelegramMessage";
-import { EOrderStatus, EOrderType, EVipPlan } from "@/generated/prisma/enums";
+import { EOrderStatus, EOrderType, EVipPlan } from "@/generated/prisma";
 
 function getVipPrice(plan: EVipPlan): number {
   switch (plan) {

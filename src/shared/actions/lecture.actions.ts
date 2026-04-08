@@ -1,16 +1,17 @@
 "use server";
 
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
+// ================= CREATE =================
 export async function createLecture(data: {
   title: string;
   courseId: string;
   order?: number;
 }) {
   try {
-    // Get the next order number if not provided
     let order = data.order;
+
     if (order === undefined) {
       const lastLecture = await db.lecture.findFirst({
         where: { courseId: data.courseId },
@@ -40,6 +41,7 @@ export async function createLecture(data: {
   }
 }
 
+// ================= UPDATE =================
 export async function updateLecture(
   lectureId: string,
   data: {
@@ -66,51 +68,34 @@ export async function updateLecture(
   }
 }
 
-export async function deleteLecture(lectureId: string, courseId: string) {
+// ================= DELETE =================
+export async function deleteLecture(lectureId: string) {
   try {
-    // 1. Xóa tất cả Lesson thuộc Lecture này
+    // ❗ PostgreSQL: chỉ cần xóa lesson → lecture
     await db.lesson.deleteMany({
       where: { lectureId },
     });
 
-    // 2. Xóa Lecture
     await db.lecture.delete({
       where: { id: lectureId },
     });
 
-    // 3. Cập nhật Course: xóa lectureId khỏi mảng
-    const course = await db.course.findFirst({
-      where: { id: courseId },
-      select: { lectureId: true },
-    });
+    // ❌ XÓA LOGIC lectureId array (Mongo) → không còn dùng
 
-    if (course?.lectureId) {
-      const updatedLectureIds = course.lectureId.filter(
-        (id) => id !== lectureId,
-      );
-      await db.course.update({
-        where: { id: courseId },
-        data: {
-          lectureId: {
-            set: updatedLectureIds,
-          },
-        },
-      });
-    }
-
+    revalidatePath(`/admin/course/content`);
     return { success: true, message: "Xoá thành công" };
   } catch (error) {
     console.error("Error deleting lecture:", error);
-    return { success: false, mesage: "Không thể xóa chương học" };
+    return { success: false, message: "Không thể xóa chương học" };
   }
 }
 
+// ================= REORDER =================
 export async function reorderLectures(
   courseId: string,
   lectureOrders: { id: string; order: number }[],
 ) {
   try {
-    // Update all lecture orders in a transaction
     await db.$transaction(
       lectureOrders.map((item) =>
         db.lecture.update({
@@ -128,6 +113,7 @@ export async function reorderLectures(
   }
 }
 
+// ================= DUPLICATE =================
 export async function duplicateLecture(lectureId: string) {
   try {
     const originalLecture = await db.lecture.findUnique({
@@ -141,14 +127,13 @@ export async function duplicateLecture(lectureId: string) {
       return { success: false, error: "Không tìm thấy chương học" };
     }
 
-    // Get the next order number
     const lastLecture = await db.lecture.findFirst({
       where: { courseId: originalLecture.courseId },
       orderBy: { order: "desc" },
     });
+
     const newOrder = (lastLecture?.order || 0) + 1;
 
-    // Create new lecture with lessons
     const newLecture = await db.lecture.create({
       data: {
         title: `${originalLecture.title} (Copy)`,
@@ -163,16 +148,19 @@ export async function duplicateLecture(lectureId: string) {
             duration: lesson.duration,
             content: lesson.content,
             status: lesson.status,
-            order: index + 1,
+            order: index,
             courseId: originalLecture.courseId,
             views: 0,
             assetId: lesson.assetId,
             iframe: lesson.iframe,
+            isFree: lesson.isFree ?? false,
           })),
         },
       },
       include: {
-        Lessons: true,
+        Lessons: {
+          orderBy: { order: "asc" },
+        },
       },
     });
 

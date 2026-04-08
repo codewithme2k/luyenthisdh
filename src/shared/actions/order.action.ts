@@ -1,8 +1,8 @@
 "use server";
 
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { currentUser } from "../hooks/auth";
-import { EOrderStatus } from "@/generated/prisma/enums";
+import { EOrderStatus } from "@/generated/prisma";
 
 export async function changeOrderStatus(
   id: string,

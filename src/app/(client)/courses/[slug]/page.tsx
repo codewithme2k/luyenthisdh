@@ -1,4 +1,4 @@
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import CourseDetailClient from "@/components/course/CourseDetailClient";
 import { CheckMemberShip } from "@/shared/actions/membership";

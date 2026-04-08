@@ -1,8 +1,8 @@
 import AccessDenied from "@/components/customs/AccessDenied";
 import { BankTransferCheckout } from "@/components/membership/BankTransferCheckout";
-import { EVipPlan } from "@/generated/prisma/enums";
+import { EVipPlan } from "@/generated/prisma";
 
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { currentUser } from "@/shared/hooks/auth";
 import { notFound } from "next/navigation";
 

@@ -8,7 +8,7 @@ import bcrypt from "bcryptjs";
 import { JWT } from "next-auth/jwt";
 import { getUserByEmail } from "@/shared/actions/user.action";
 import { getTwoFactorConfirmationByUserId } from "./token";
-import db from "./prisma";
+import { db } from "./prisma";
 
 // extend the types to include role
 declare module "next-auth" {

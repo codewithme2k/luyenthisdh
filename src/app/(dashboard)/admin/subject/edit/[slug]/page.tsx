@@ -1,5 +1,5 @@
 import EditSubject from "@/components/admin/subject/EditSubject";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;

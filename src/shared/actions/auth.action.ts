@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { getUserByEmail } from "./user.action";
 import { z } from "zod";
 import { signOut } from "@/lib/auth";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import {
   generateTwoFactorToken,
   generateVerificationToken,

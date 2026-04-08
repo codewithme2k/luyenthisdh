@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
-import { StatsType } from "@/generated/prisma/enums";
-import db from "@/lib/prisma";
+import { StatsType } from "@/generated/prisma";
+import { db } from "@/lib/prisma";
 
 // Khởi tạo Prisma Client (Thông thường nên đặt ở file riêng như @/lib/prisma.ts)
 

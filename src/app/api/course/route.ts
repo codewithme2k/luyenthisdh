@@ -1,6 +1,6 @@
 import slugify from "slugify";
 import { currentUser } from "@/shared/hooks/auth";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { ECourseLevel, Prisma } from "@/generated/prisma/client";
 

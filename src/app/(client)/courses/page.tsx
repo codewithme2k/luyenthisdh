@@ -5,7 +5,7 @@ import { Container } from "@/components/customs/Container";
 import { PageHeader } from "@/components/customs/page-header";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 
 export default async function page() {
   const [courses, subjects] = await Promise.all([

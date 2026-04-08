@@ -2,7 +2,7 @@ import type readingTime from "reading-time";
 
 import { formatDate, getTimeAgo } from "@/utils/misc";
 import { ViewsCounter } from "./views-counter";
-import { StatsType } from "@/generated/prisma/enums";
+import { StatsType } from "@/generated/prisma";
 
 type BlogMetaProps = {
   date: string;

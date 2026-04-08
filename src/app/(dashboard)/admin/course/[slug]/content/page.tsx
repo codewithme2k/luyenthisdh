@@ -1,5 +1,5 @@
 import CourseContent from "@/components/admin/course/Content";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
 export default async function page({

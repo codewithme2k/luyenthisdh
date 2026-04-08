@@ -12,7 +12,7 @@ import { TagsList } from "@/components/blog/tags";
 import type { CoreContent } from "@/shared/types/data";
 import { SITE_METADATA } from "@/shared/site-metadata";
 import { Container } from "@/components/customs/Container";
-import { StatsType } from "@/generated/prisma/enums";
+import { StatsType } from "@/generated/prisma";
 
 interface LayoutProps {
   content: CoreContent<Blog>;

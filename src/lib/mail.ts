@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 export const sendPasswordResetEmail = async (email: string, token: string) => {
-  const resetLink = `${domain}auth/new-password?token=${token}`;
+  const resetLink = `${domain}/auth/new-password?token=${token}`;
 
   const mailOptions = {
     from: "noreply@madebyhuu.com",
@@ -41,7 +41,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
 };
 
 export const sendVerificationEmail = async (email: string, token: string) => {
-  const confirmLink = `${domain}auth/new-verification?token=${token}`;
+  const confirmLink = `${domain}/auth/new-verification?token=${token}`;
 
   const mailOptions = {
     from: "noreply@madebyhuu.com",

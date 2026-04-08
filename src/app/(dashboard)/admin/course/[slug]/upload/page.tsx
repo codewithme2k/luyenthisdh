@@ -1,5 +1,5 @@
 import UploadLecture from "@/components/admin/course/Upload";
-import db from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { currentUser } from "@/shared/hooks/auth";
 
 export default async function page({
