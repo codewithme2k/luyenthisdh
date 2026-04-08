@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronRight, Calendar, Code, FileText } from "lucide-react";
 import { clsx } from "clsx";
 import { CoreContent } from "@/shared/types/data";
-import { Blog, Snippet } from "contentlayer/generated";
+import { Blog, Tool } from "contentlayer/generated";
 import { formatDate } from "@/utils/misc";
 
 import { Brand, BrandsMap } from "@/components/customs/brand";
@@ -16,12 +16,12 @@ import { TiltedGridBackground } from "@/components/customs/tilted-grid-backgroun
 
 export default function BlogSection({
   posts,
-  snippets,
+  tools,
 }: {
   posts: CoreContent<Blog>[];
-  snippets: CoreContent<Snippet>[];
+  tools: CoreContent<Tool>[];
 }) {
-  const [activeTab, setActiveTab] = useState<"posts" | "snippets">("posts");
+  const [activeTab, setActiveTab] = useState<"posts" | "tools">("posts");
 
   return (
     <section className="py-20 bg-[#f1f5f9] dark:bg-slate-950 px-4">
@@ -45,15 +45,15 @@ export default function BlogSection({
               <FileText size={18} /> POSTS
             </button>
             <button
-              onClick={() => setActiveTab("snippets")}
+              onClick={() => setActiveTab("tools")}
               className={clsx(
                 "flex items-center gap-2 px-8 py-2.5 rounded-xl text-sm font-black transition-all",
-                activeTab === "snippets"
+                activeTab === "tools"
                   ? "bg-white dark:bg-blue-600 text-blue-600 dark:text-white shadow-lg"
                   : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200",
               )}
             >
-              <Code size={18} /> SNIPPETS
+              <Code size={18} /> TOOLS
             </button>
           </div>
         </div>
@@ -104,13 +104,12 @@ export default function BlogSection({
               ))}
             </div>
           ) : (
-            /* HIỂN THỊ SNIPPETS (2 CỘT VỚI STYLE CARD ĐẶC BIỆT) */
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 pt-10">
-              {snippets.map((snippet) => (
-                <GradientBorder key={snippet.slug} className="rounded-2xl">
+              {tools.map((tool) => (
+                <GradientBorder key={tool.slug} className="rounded-2xl">
                   <Link
-                    href={`/${snippet.path}`}
-                    title={snippet.title}
+                    href={`/${tool.path}`}
+                    title={tool.title}
                     className={clsx(
                       "relative flex h-full rounded-2xl p-1",
                       "bg-white dark:bg-zinc-900/50",
@@ -122,17 +121,17 @@ export default function BlogSection({
 
                     {/* Brand Icon floating on top */}
                     <Brand
-                      name={snippet.icon as keyof typeof BrandsMap}
+                      name={tool.icon as keyof typeof BrandsMap}
                       as="icon"
                       className="absolute -top-6 left-6 z-10 h-12 w-12 text-gray-900 dark:text-white drop-shadow-md"
                     />
 
                     <div className="relative w-full px-6 pt-10 pb-8">
                       <h3 className="text-xl leading-7 font-bold dark:text-white">
-                        <GrowingUnderline>{snippet.title}</GrowingUnderline>
+                        <GrowingUnderline>{tool.title}</GrowingUnderline>
                       </h3>
                       <p className="mt-3 line-clamp-2 text-slate-500 dark:text-zinc-400 text-sm font-medium">
-                        {snippet.summary}
+                        {tool.summary}
                       </p>
                     </div>
                   </Link>

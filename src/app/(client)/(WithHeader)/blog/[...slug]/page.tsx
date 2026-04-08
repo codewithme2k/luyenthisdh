@@ -150,18 +150,17 @@ export default async function Page(props: {
 
             <Link
               href="/membership"
-              className="group relative inline-flex items-center justify-center mt-8 overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 px-10 py-4 text-sm font-black text-white no-underline shadow-[0_10px_25px_-5px_rgba(37,99,235,0.4)] transition-all hover:scale-105 hover:shadow-[0_15px_35px_-5px_rgba(37,99,235,0.5)] active:scale-95"
+              className="group relative inline-flex items-center justify-center mt-8 overflow-hidden rounded-full bg-linear-to-r from-blue-600 to-indigo-700 px-10 py-4 text-sm font-black text-white no-underline shadow-[0_10px_25px_-5px_rgba(37,99,235,0.4)] transition-all hover:scale-105 hover:shadow-[0_15px_35px_-5px_rgba(37,99,235,0.5)] active:scale-95"
             >
               <span className="relative uppercase tracking-widest text-white">
                 Nâng cấp ngay
               </span>
-              <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-15deg)_translateX(100%)]">
+              <div className="absolute inset-0 flex h-full w-full justify-center transform-[skew(-15deg)_translateX(-100%)] group-hover:duration-1000 group-hover:transform-[skew(-15deg)_translateX(100%)">
                 <div className="relative h-full w-12 bg-white/30" />
               </div>
             </Link>
           </div>
         ) : (
-          /* NẾU LÀ BÀI THƯỜNG HOẶC ĐÃ LÀ VIP THÌ HIỆN NỘI DUNG */
           <MDXLayoutRenderer
             code={post.body.code}
             components={MDX_COMPONENTS}

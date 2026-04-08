@@ -1,5 +1,5 @@
 import { SITE_METADATA } from "@/shared/site-metadata";
-import { allBlogs, allSnippets } from "contentlayer/generated";
+import { allBlogs, allTools } from "contentlayer/generated";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,17 +10,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/${path}`,
       lastModified: lastmod || date,
     }));
-  const snippetRoutes = allSnippets
+  const toolRoutes = allTools
     .filter((s) => !s.draft)
     .map(({ path, lastmod, date }) => ({
-      url: `${siteUrl}/snippets/${path}`,
+      url: `${siteUrl}/tools/${path}`,
       lastModified: lastmod || date,
     }));
 
   const routes = [
     "",
     "blog",
-    "snippets",
+    "tools",
     "projects",
     "about",
     "books",
@@ -31,5 +31,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  return [...routes, ...blogRoutes, ...snippetRoutes];
+  return [...routes, ...blogRoutes, ...toolRoutes];
 }

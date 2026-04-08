@@ -1,0 +1,217 @@
+---
+title: "Thang điểm SOFA-2"
+heading: "Thang điểm SOFA-2"
+date: "2025-04-08"
+tags:
+  - medical
+  - icu
+  - critical-care
+  - scoring-systems
+summary: "SOFA-2 là bản cập nhật toàn cầu phản ánh thực hành hồi sức hiện đại, tích hợp các yếu tố mới như HFNC, ECMO và liều vận mạch chính xác."
+icon: "Calculator"
+images:
+  - https://cdn.hscc.vn/xxxhinhanh/sofa2_banner.png
+authors:
+  - default
+---
+
+# THANG ĐIỂM SOFA-2
+
+**Sequential Organ Failure Assessment**
+
+SOFA-2 là bản cập nhật toàn cầu được công bố trên JAMA ngày 29 tháng 10 năm 2025. Thang điểm giữ nguyên tính đơn giản (0–24 điểm) nhưng tăng tính chính xác nhờ điều chỉnh ngưỡng mới và tích hợp các phương thức hỗ trợ cơ quan hiện đại như **HFNC, RRT, ECMO** và liều vận mạch quy đổi dạng **base**.
+
+---
+
+## CÔNG CỤ TÍNH ĐIỂM TỰ ĐỘNG
+
+<SOFA2Calculator />
+
+---
+
+## CHI TIẾT CÁCH CHẤM ĐIỂM
+
+### 1. Não (Thần kinh)
+
+- **(1)** Đối với bệnh nhân được an thần, sử dụng thang điểm GCS được ghi nhận lần cuối trước khi an thần. Nếu không biết giá trị GCS trước đó, chấm 0 điểm.
+- **(2)** Khi không thể đánh giá đầy đủ cả 3 thành phần của thang điểm GCS, sử dụng điểm cao nhất đạt được ở thành phần vận động để chấm điểm.
+- **(3)** Nếu bệnh nhân đang được điều trị bằng thuốc do sảng (ngắn hạn hoặc dài hạn), chấm 1 điểm, ngay cả khi GCS = 15.
+
+<div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm my-4">
+  <table className="min-w-full divide-y divide-gray-200 text-sm">
+    <thead>
+      <tr className="bg-gray-100 font-bold text-gray-700 text-center">
+        <th className="px-4 py-2 border-b text-left">Tiêu chí</th>
+        <th className="px-4 py-2 border-b">Điểm</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-200 bg-white">
+      <tr>
+        <td className="px-4 py-2">
+          GCS = 15 (hoặc đáp ứng tốt bằng ký hiệu ngón tay: thumbs-up, fist,
+          peace sign)
+        </td>
+        <td className="px-4 py-2 text-center font-bold">0</td>
+      </tr>
+      <tr className="bg-gray-50">
+        <td className="px-4 py-2">
+          GCS 13–14 (định khu khi đau) hoặc đang dùng thuốc điều trị sảng
+          (delirium)
+        </td>
+        <td className="px-4 py-2 text-center font-bold">1</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-2">GCS 9–12 (hoặc rút chi khi đau)</td>
+        <td className="px-4 py-2 text-center font-bold">2</td>
+      </tr>
+      <tr className="bg-gray-50">
+        <td className="px-4 py-2">GCS 6–8 (hoặc gập chi khi đau)</td>
+        <td className="px-4 py-2 text-center font-bold">3</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-2 font-semibold text-red-600 text-red-600 uppercase">
+          GCS 3–5 (duỗi cứng khi đau, không đáp ứng, hoặc giật cơ toàn thân)
+        </td>
+        <td className="px-4 py-2 text-center font-bold text-red-600 text-red-600">
+          4
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+### 2. Hô hấp
+
+- **(4)** Chỉ sử dụng tỷ số SpO₂/FiO₂ khi không có sẵn tỷ số PaO₂/FiO₂ và khi SpO₂ dưới 98%.
+- **(5)** **Hỗ trợ hô hấp nâng cao** bắt buộc để chấm 3–4 điểm: HFNC, CPAP, BiPAP, Thở máy xâm lấn/không xâm lấn, thông khí tại nhà dài hạn.
+- **(6)** Bệnh nhân không được hỗ trợ hô hấp nâng cao có thể đạt tối đa 2 điểm (trừ khi phương tiện không sẵn có hoặc giới hạn điều trị).
+- **(7)** Nếu **ECMO** (mọi hình thức) được sử dụng cho suy hô hấp, chấm 4 điểm hô hấp (không chấm tim mạch). Nếu dùng cho tim mạch, chấm 4 điểm ở cả hai hệ.
+
+<div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm my-4 text-sm">
+  <table className="min-w-full divide-y divide-gray-200 text-center">
+    <thead>
+      <tr className="bg-gray-100 font-bold text-gray-700">
+        <th className="px-4 py-2 border-b text-left">PaO₂/FiO₂ (mmHg)</th>
+        <th className="px-4 py-2 border-b">Hỗ trợ hô hấp nâng cao</th>
+        <th className="px-4 py-2 border-b">Điểm</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-200 bg-white">
+      <tr><td className="px-4 py-2 text-left">`> 300`</td><td className="px-4 py-2">-</td><td className="px-4 py-2 font-bold">0</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left">`≤ 300`</td><td className="px-4 py-2">-</td><td className="px-4 py-2 font-bold">1</td></tr>
+      <tr><td className="px-4 py-2 text-left">`≤ 225`</td><td className="px-4 py-2">-</td><td className="px-4 py-2 font-bold">2</td></tr>
+      <tr className="bg-gray-50 text-blue-700"><td className="px-4 py-2 text-left font-medium">`≤ 150`</td><td className="px-4 py-2 italic">Bắt buộc</td><td className="px-4 py-2 font-bold">3</td></tr>
+      <tr className="text-red-600 font-bold"><td className="px-4 py-2 text-left">`≤ 75` hoặc ECMO</td><td className="px-4 py-2 italic text-xs text-gray-500 font-normal underline uppercase">Bắt buộc</td><td className="px-4 py-2 font-bold">4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+### 3. Tim mạch
+
+- **(8)** Thuốc vận mạch chỉ tính điểm khi truyền liên tục ít nhất 1 giờ.
+- **(9)** Liều Norepinephrine/Epinephrine quy đổi theo dạng **base** (1 mg base $\approx$ 2 mg bitartrate monohydrate).
+- **(10)** Dopamine duy nhất: 2 điểm (`≤ 20`), 3 điểm (`> 20-40`), 4 điểm (`> 40 µg/kg/p`).
+- **(11)** Nếu không có vận mạch, chấm theo MAP: 0đ (`≥ 70`), 1đ (`60-69`), 2đ (`50-59`), 3đ (`40-49`), 4đ (`< 40 mmHg`).
+- **(12)** Hỗ trợ tuần hoàn cơ học (ECMO VA, IABP, LVAD, Impella) tính 4 điểm.
+
+<div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm my-4 text-sm">
+  <table className="min-w-full divide-y divide-gray-200 text-center">
+    <thead>
+      <tr className="bg-gray-100 font-bold text-gray-700">
+        <th className="px-4 py-2 border-b text-left">Huyết động / Vận mạch</th>
+        <th className="px-4 py-2 border-b">Liều (µg/kg/phút)</th>
+        <th className="px-4 py-2 border-b">Điểm</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-200 bg-white text-gray-800">
+      <tr><td className="px-4 py-2 text-left font-medium text-blue-900">MAP ≥ 70 mmHg, không vận mạch</td><td className="px-4 py-2">-</td><td className="px-4 py-2 font-bold">0</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left font-medium text-blue-900">MAP &lt; 70 mmHg, không vận mạch</td><td className="px-4 py-2">-</td><td className="px-4 py-2 font-bold">1</td></tr>
+      <tr><td className="px-4 py-2 text-left">Vận mạch liều thấp (Tổng NA+ADR `≤ 0.2`)</td><td className="px-4 py-2">`≤ 0.2`</td><td className="px-4 py-2 font-bold">2</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left">Vận mạch liều trung bình</td><td className="px-4 py-2">`> 0.2 - 0.4`</td><td className="px-4 py-2 font-bold">3</td></tr>
+      <tr className="text-red-700 font-bold uppercase"><td className="px-4 py-2 text-left italic">Liều cao hoặc hỗ trợ cơ học</td><td className="px-4 py-2">`> 0.4`</td><td className="px-4 py-2 font-bold text-red-700 text-red-700">4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+### 4. Gan (Bilirubin)
+
+<div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm my-4 text-sm text-center">
+  <table className="min-w-full divide-y divide-gray-200">
+    <thead>
+      <tr className="bg-gray-100 font-bold text-gray-700">
+        <th className="px-4 py-2 border-b text-left">Bilirubin toàn phần (mg/dL)</th>
+        <th className="px-4 py-2 border-b text-left">µmol/L</th>
+        <th className="px-4 py-2 border-b">Điểm</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-200 bg-white">
+      <tr><td className="px-4 py-2 text-left">`≤ 1.2`</td><td className="px-4 py-2 text-left">`≤ 20.6`</td><td className="px-4 py-2 font-bold">0</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left">`≤ 3.0`</td><td className="px-4 py-2 text-left">`≤ 51.3`</td><td className="px-4 py-2 font-bold">1</td></tr>
+      <tr><td className="px-4 py-2 text-left">`≤ 6.0`</td><td className="px-4 py-2 text-left">`≤ 102.6`</td><td className="px-4 py-2 font-bold">2</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left">`≤ 12.0`</td><td className="px-4 py-2 text-left">`≤ 205`</td><td className="px-4 py-2 font-bold">3</td></tr>
+      <tr className="text-red-600 font-bold"><td className="px-4 py-2 text-left">`> 12.0`</td><td className="px-4 py-2 text-left">`> 205`</td><td className="px-4 py-2 font-bold text-red-600">4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+### 5. Thận
+
+- **(13)** Loại trừ RRT chỉ vì các nguyên nhân không liên quan đến thận (lọc chất độc, cytokine).
+- **(14)** Đối với bệnh nhân không được lọc máu, chấm 4 điểm nếu Creatinine `> 1,2 mg/dL` hoặc thiểu niệu (`< 0,3 mL/kg/giờ` trong `> 6 giờ`) **kèm ít nhất 1 tiêu chí**: Kali `≥ 6,0 mmol/L` hoặc Toan chuyển hóa (`pH ≤ 7,20` và `HCO₃⁻ ≤ 12 mmol/L`).
+- **(15)** Lọc máu ngắt quãng: Chấm 4 điểm trong những ngày nghỉ lọc cho đến khi ngưng hoàn toàn RRT.
+
+<div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm my-4 text-sm text-center uppercase">
+  <table className="min-w-full divide-y divide-gray-200">
+    <thead>
+      <tr className="bg-gray-100 font-bold text-gray-700 text-left">
+        <th className="px-4 py-2 border-b">Creatinine (mg/dL)</th>
+        <th className="px-4 py-2 border-b">Lượng nước tiểu</th>
+        <th className="px-4 py-2 border-b text-center">Điểm</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-200 bg-white text-gray-800 italic">
+      <tr><td className="px-4 py-2 text-left font-medium">`≤ 1.2`</td><td className="px-4 py-2 text-left font-medium">-</td><td className="px-4 py-2 font-bold text-center">0</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left font-medium">`≤ 2.0`</td><td className="px-4 py-2 text-left font-medium">`&lt; 0.5 mL/kg/giờ` (6-12h)</td><td className="px-4 py-2 font-bold text-center">1</td></tr>
+      <tr><td className="px-4 py-2 text-left font-medium">`≤ 3.5`</td><td className="px-4 py-2 text-left font-medium">`&lt; 0.5 mL/kg/giờ` (≥ 12h)</td><td className="px-4 py-2 font-bold text-center">2</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left font-medium">`> 3.5`</td><td className="px-4 py-2 text-left font-medium text-xs">`&lt; 0.3 mL/kg/h` (≥ 24h) hoặc vô niệu (≥ 12h)</td><td className="px-4 py-2 font-bold text-center">3</td></tr>
+      <tr className="text-red-700 font-bold uppercase"><td className="px-4 py-2 text-left">Đang chạy RRT hoặc đủ tiêu chuẩn RRT + biến chứng</td><td className="px-4 py-2 text-left uppercase">-</td><td className="px-4 py-2 text-center uppercase">4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+### 6. Huyết học (Đông cầm máu)
+
+<div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm my-4 text-sm text-center uppercase">
+  <table className="min-w-full divide-y divide-gray-200">
+    <thead>
+      <tr className="bg-gray-100 font-bold text-gray-700 uppercase">
+        <th className="px-4 py-2 border-b text-left uppercase">Tiểu cầu (× 10³/µL)</th>
+        <th className="px-4 py-2 border-b uppercase">Điểm</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-200 bg-white uppercase">
+      <tr><td className="px-4 py-2 text-left">`> 150`</td><td className="px-4 py-2 font-bold">0</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left">`≤ 150`</td><td className="px-4 py-2 font-bold">1</td></tr>
+      <tr><td className="px-4 py-2 text-left">`≤ 100`</td><td className="px-4 py-2 font-bold">2</td></tr>
+      <tr className="bg-gray-50"><td className="px-4 py-2 text-left">`≤ 80`</td><td className="px-4 py-2 font-bold">3</td></tr>
+      <tr><td className="px-4 py-2 text-left text-red-600 font-semibold uppercase">`≤ 50`</td><td className="px-4 py-2 font-bold text-red-600 text-red-600 uppercase font-bold">4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+## TÀI LIỆU THAM KHẢO
+
+1. Development and Validation of the Sequential Organ Failure Assessment (SOFA)-2 Score. **JAMA 2025**.
+2. [Development and Validation of the Sequential Organ Failure Assessment (SOFA)-2 Score | JAMA](https://jamanetwork.com/journals/jama/fullarticle/2840822)

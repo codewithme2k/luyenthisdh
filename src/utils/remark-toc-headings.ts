@@ -17,14 +17,13 @@ export type Toc = TocItem[];
  */
 function remarkTocHeadings() {
   return (tree: Parent, file: any) => {
-    let toc: Toc = [];
-    visit(tree, "heading", (node) => {
-      let textContent = toString(node).replace(/<[^>]*(>|$)/g, "");
+    const toc: Toc = [];
+    visit(tree, "heading", (node: any) => {
+      const textContent = toString(node).replace(/<[^>]*(>|$)/g, "");
       if (textContent) {
         toc.push({
           value: textContent,
           url: "#" + slug(textContent),
-          // @ts-ignore
           depth: node.depth,
         });
       }

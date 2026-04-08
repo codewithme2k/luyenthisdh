@@ -4,15 +4,15 @@ import { Container } from "@/components/customs/Container";
 
 import tagData from "@/json/tag-data.json";
 
-export let metadata = genPageMetadata({
+export const metadata = genPageMetadata({
   title: "Tags",
   description: "Things I blog about",
 });
 
 export default async function Page() {
-  let tagCounts = tagData as Record<string, number>;
-  let tagKeys = Object.keys(tagCounts);
-  let sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
+  const tagCounts = tagData as Record<string, number>;
+  const tagKeys = Object.keys(tagCounts);
+  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
   return (
     <Container className="pt-4 md:pt-0">
       <div className="flex flex-col items-start justify-start md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6">

@@ -138,9 +138,9 @@ export const Blog = defineDocumentType(() => ({
   },
 }));
 
-export const Snippet = defineDocumentType(() => ({
-  name: "Snippet",
-  filePathPattern: "snippets/**/*.mdx",
+export const Tool = defineDocumentType(() => ({
+  name: "Tool",
+  filePathPattern: "tools/**/*.mdx",
   contentType: "mdx",
   fields: {
     heading: { type: "string", required: true },
@@ -156,6 +156,7 @@ export const Snippet = defineDocumentType(() => ({
     layout: { type: "string" },
     bibliography: { type: "string" },
     canonicalUrl: { type: "string" },
+    isVip: { type: "boolean", default: false },
   },
   computedFields: {
     ...computedFields,
@@ -163,7 +164,7 @@ export const Snippet = defineDocumentType(() => ({
       type: "json",
       resolve: (doc) => ({
         "@context": "https://schema.org",
-        "@type": "CodeSnippet",
+        "@type": "WebApplication",
         headline: doc.title,
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
@@ -174,7 +175,6 @@ export const Snippet = defineDocumentType(() => ({
     },
   },
 }));
-
 export const Author = defineDocumentType(() => ({
   name: "Author",
   filePathPattern: "authors/**/*.mdx",
@@ -195,7 +195,7 @@ export const Author = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "data",
-  documentTypes: [Blog, Snippet, Author],
+  documentTypes: [Blog, Tool, Author],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -235,8 +235,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs, allSnippets } = await importData();
-    const allPosts = [...allBlogs, ...allSnippets];
+    const { allBlogs, allTools } = await importData();
+    const allPosts = [...allBlogs, ...allTools];
     createTagCount(allPosts);
     createSearchIndex(allPosts);
     console.log("✨ Content source generated successfully!");

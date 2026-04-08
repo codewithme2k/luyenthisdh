@@ -13,7 +13,6 @@ import "katex/dist/katex.min.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/lib/auth";
 import { Toaster } from "sonner";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { KBarSearchProvider } from "@/components/search/kbar-provider";
 import { SITE_METADATA } from "@/shared/site-metadata";
@@ -48,7 +47,45 @@ const FONT_JETBRAINS_MONO = JetBrains_Mono({
   display: "swap",
   variable: "--font-jetbrains-mono",
 });
-
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_METADATA.siteUrl),
+  title: {
+    default: SITE_METADATA.title,
+    template: `%s | ${SITE_METADATA.title}`,
+  },
+  description: SITE_METADATA.description,
+  openGraph: {
+    title: SITE_METADATA.title,
+    description: SITE_METADATA.description,
+    url: "./",
+    siteName: SITE_METADATA.title,
+    images: [SITE_METADATA.socialBanner],
+    locale: "en_US",
+    type: "website",
+  },
+  alternates: {
+    canonical: "./",
+    types: {
+      "application/rss+xml": `${SITE_METADATA.siteUrl}/feed.xml`,
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    title: SITE_METADATA.title,
+    card: "summary_large_image",
+    images: [SITE_METADATA.socialBanner],
+  },
+};
 export default async function RootLayout({
   children,
 }: Readonly<{

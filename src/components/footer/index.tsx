@@ -1,44 +1,39 @@
-import React from "react";
+import { clsx } from "clsx";
 
-export default function Footer() {
+import { FooterBottom } from "./footer-bottom";
+import { FooterMeta } from "./footer-meta";
+import { FooterNav } from "./footer-nav";
+import { LogoAndRepo } from "./logo-and-repo";
+import { Signature } from "./signature";
+import { Container } from "@/components/customs/Container";
+import { SITE_METADATA } from "@/shared/site-metadata";
+
+export function Footer() {
   return (
-    <footer className="bg-white dark:bg-slate-950 pt-20 pb-10 border-t border-slate-100 dark:border-slate-900">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 text-left">
-        <div className="col-span-1 md:col-span-2 space-y-6">
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tighter italic">
-            Y Khoa <span className="text-blue-600">Số</span>
-          </h2>
-          <p className="text-slate-400 text-sm max-w-sm font-medium leading-relaxed">
-            Nền tảng đào tạo y khoa số hàng đầu Việt Nam, giúp bác sĩ cập nhật
-            kiến thức liên tục và thực chiến hơn trong lâm sàng.
-          </p>
+    <Container as="footer" className="mt-8 mb-4 md:mt-16">
+      <div
+        className={clsx([
+          "grid grid-cols-1 gap-x-8 gap-y-8 py-8 md:grid-cols-2 xl:grid-cols-3",
+          "border-t border-gray-200 dark:border-gray-700",
+        ])}
+      >
+        <div className="col-span-1 space-y-4 xl:col-span-2">
+          <LogoAndRepo />
+          <div className="text-gray-500 italic dark:text-gray-400">
+            {SITE_METADATA.description}
+          </div>
+          <div className="pt-4">
+            <div className="flex gap-8 py-1.5 md:gap-20">
+              <div className="flex items-center">
+                <Signature className="h-20 w-32 md:w-40" />
+              </div>
+              <FooterMeta />
+            </div>
+          </div>
         </div>
-        <div className="space-y-6">
-          <h4 className="font-black text-[10px] uppercase tracking-widest text-slate-900 dark:text-white underline underline-offset-8 decoration-blue-600 decoration-2">
-            Liên kết
-          </h4>
-          <ul className="space-y-4 text-sm text-slate-500 font-bold uppercase tracking-tighter">
-            <li className="hover:text-blue-600 cursor-pointer">Khoá học</li>
-            <li className="hover:text-blue-600 cursor-pointer">
-              Thư viện Case
-            </li>
-            <li className="hover:text-blue-600 cursor-pointer">Gói Hội Viên</li>
-          </ul>
-        </div>
-        <div className="space-y-6">
-          <h4 className="font-black text-[10px] uppercase tracking-widest text-slate-900 dark:text-white underline underline-offset-8 decoration-blue-600 decoration-2">
-            Kết nối
-          </h4>
-          <ul className="space-y-4 text-sm text-slate-500 font-bold uppercase tracking-tighter">
-            <li className="hover:text-blue-600 cursor-pointer">Facebook</li>
-            <li className="hover:text-blue-600 cursor-pointer">YouTube</li>
-            <li className="hover:text-blue-600 cursor-pointer">Cộng đồng</li>
-          </ul>
-        </div>
+        <FooterNav />
       </div>
-      <p className="text-center text-[9px] text-slate-400 font-black uppercase tracking-[3px] border-t border-slate-50 dark:border-slate-900 pt-10">
-        © 2026 Y KHOA SỐ • KIẾN THỨC LÀ SỨC MẠNH
-      </p>
-    </footer>
+      <FooterBottom />
+    </Container>
   );
 }

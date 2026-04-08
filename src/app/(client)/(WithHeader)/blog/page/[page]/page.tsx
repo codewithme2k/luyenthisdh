@@ -5,9 +5,9 @@ import { allCoreContent } from "@/utils/contentlayer";
 import { sortPosts } from "@/utils/misc";
 import { POSTS_PER_PAGE } from "@/shared/constants";
 
-export let generateStaticParams = async () => {
-  let totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE);
-  let paths = Array.from({ length: totalPages }, (_, i) => ({
+export const generateStaticParams = async () => {
+  const totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE);
+  const paths = Array.from({ length: totalPages }, (_, i) => ({
     page: (i + 1).toString(),
   }));
   return paths;
@@ -16,14 +16,14 @@ export let generateStaticParams = async () => {
 export default async function Page(props: {
   params: Promise<{ page: string }>;
 }) {
-  let params = await props.params;
-  let posts = allCoreContent(sortPosts(allBlogs));
-  let pageNumber = parseInt(params.page as string);
-  let initialDisplayPosts = posts.slice(
+  const params = await props.params;
+  const posts = allCoreContent(sortPosts(allBlogs));
+  const pageNumber = parseInt(params.page as string);
+  const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber,
   );
-  let pagination = {
+  const pagination = {
     currentPage: pageNumber,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   };

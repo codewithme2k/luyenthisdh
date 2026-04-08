@@ -1,6 +1,6 @@
 import { SITE_METADATA } from "@/shared/site-metadata";
 import { clsx } from "clsx";
-import { Facebook, Github, Linkedin, Mail, Youtube } from "lucide-react";
+import { Facebook, Github, Instagram, Mail, Youtube } from "lucide-react";
 
 import X from "@/components/icons/x.svg";
 
@@ -28,14 +28,14 @@ export function SocialAccounts({ className }: { className?: string }) {
         <X className="h-5 w-5" fill="#fff" viewBox="0 0 1200 1227" />
       </a>
       <a
-        href={SITE_METADATA.linkedin}
+        href={SITE_METADATA.instagram}
         target="_blank"
-        data-umami-event="contact-linkedin"
+        data-umami-event="contact-instagram"
         className="text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
         rel="noopener noreferrer"
       >
-        <span className="sr-only">Linkedin</span>
-        <Linkedin strokeWidth={1.5} />
+        <span className="sr-only">Instagram</span>
+        <Instagram strokeWidth={1.5} />
       </a>
       <a
         href={`mailto:${SITE_METADATA.email}`}

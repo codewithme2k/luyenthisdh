@@ -1,15 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Author } from "contentlayer/generated";
 import type { ReactNode } from "react";
-import { CareerTimeline } from "@/components/customs/author/career";
-import { SocialAccounts } from "@/components/customs/author/social-accounts";
-import { ProfileCard } from "@/components/customs/cards/profile";
-import { Button } from "@/components/customs/button";
 
-import { Image } from "@/components/customs/image";
-
-import { Twemoji } from "@/components/customs/twemoji";
-import { Container } from "@/components/customs/Container";
 import { SITE_METADATA } from "@/shared/site-metadata";
+import { Container } from "@/components/customs/Container";
+import { ProfileCard } from "@/components/customs/cards/profile";
+import { Twemoji } from "@/components/customs/twemoji";
+import { SocialAccounts } from "@/components/customs/author/social-accounts";
 
 interface Props {
   children?: ReactNode;
@@ -19,236 +16,85 @@ interface Props {
 export function AuthorLayout({ children }: Props) {
   return (
     <Container className="pt-4 lg:pt-12">
-      <div className="py-8 md:grid md:grid-cols-3">
+      <div className="py-8 md:grid md:grid-cols-3 gap-12">
+        {/* Cột trái: Profile Card */}
         <div className="pr-4">
           <ProfileCard />
         </div>
-        <div className="md:col-span-2 md:pl-12 xl:pl-16">
-          <div className="prose prose-lg dark:prose-invert">
-            <div>
-              <h2 className="mt-0">
-                Hi there <Twemoji emoji="waving-hand" />
+
+        {/* Cột phải: Nội dung chính */}
+        <div className="md:col-span-2 md:pl-4 xl:pl-8">
+          <div className="prose prose-lg max-w-none dark:prose-invert">
+            <section>
+              <h2 className="mt-0 flex items-center gap-3">
+                Xin chào <Twemoji emoji="waving-hand" />
               </h2>
               <p>
-                I'm <strong>Tuan Anh Huynh</strong> (alias <strong>Leo</strong>{" "}
-                at work), a software engineer from <strong>Vietnam</strong>. I
-                have a passion for all things <strong>Javascript</strong>. I
-                enjoy building eCommerce software and stuff related to web dev.
-                I work mainly with <strong>Typescript</strong>,{" "}
-                <strong>React</strong>, <strong>NodeJS</strong>,{" "}
-                <strong>Remix</strong>, and <strong>TailwindCSS</strong>.
+                Chào mừng bạn đến với blog của tôi. Đây là nơi tôi chia sẻ những
+                kiến thức, trải nghiệm và những điều thú vị mà mình học được
+                trong hành trình làm nghề.
               </p>
+            </section>
+
+            <section className="mt-12">
+              <h2>Ủng hộ (Donate)</h2>
               <p>
-                This blog serves as a journal for documenting and sharing the
-                insights and knowledge I've gained as a software engineer.
-                Building, writing, and sharing things is a great way for me to
-                solidify my understanding of new concepts and ideas.
+                Nếu bạn thấy những chia sẻ của tôi hữu ích, một tách cà phê sẽ
+                là nguồn động lực tuyệt vời để tôi tiếp tục duy trì và phát
+                triển nội dung cho blog.
               </p>
-              <p>
-                I would greatly appreciate any comments and thoughts on my posts{" "}
-                <Twemoji emoji="clinking-beer-mugs" />.
-              </p>
-            </div>
-            <div>
-              <div className="mb-[1em] mt-[2em] flex items-center justify-between [&>h2]:my-0">
-                <h2>My career</h2>
-                <Button as="a" href="/static/resume.pdf" target="_blank">
-                  <span>Resume</span>
-                  <Twemoji emoji="page-facing-up" />
-                </Button>
+
+              {/* Khu vực Donate tối giản cho Việt Nam */}
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
+                <div className="rounded-xl border border-gray-200 p-5 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Twemoji emoji="bank" />
+                    <span className="font-bold text-gray-900 dark:text-gray-100">
+                      Chuyển khoản
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Ngân hàng: <strong>MB Bank</strong>
+                    <br />
+                    Số tài khoản: <strong>[Số tài khoản của bạn]</strong>
+                    <br />
+                    Chủ TK: <strong>[Tên của bạn]</strong>
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-gray-200 p-5 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Twemoji emoji="mobile-phone" />
+                    <span className="font-bold text-gray-900 dark:text-gray-100">
+                      Ví điện tử
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    MoMo: <strong>0967583134</strong>
+                    <br />
+                    Nội dung: <strong>Donate Blog</strong>
+                  </p>
+                </div>
               </div>
-              <CareerTimeline />
-            </div>
-            <div>
-              <h2>Tech stack</h2>
+            </section>
+
+            <section className="mt-12">
+              <h2>Liên hệ</h2>
               <p>
-                This blog is hosted on{" "}
-                <a href="https://vercel.com/" target="_blank">
-                  Vercel
-                </a>
-                , built with{" "}
-                <a href="https://nextjs.org/" target="_blank">
-                  Next.js
-                </a>{" "}
-                and{" "}
-                <a href="https://tailwindcss.com/" target="_blank">
-                  Tailwind CSS
-                </a>{" "}
-                using <strong>Tailwind Nextjs Starter Blog</strong>.
-              </p>
-              <p>
-                A huge thanks to{" "}
-                <a href="https://twitter.com/timlrxx" target="_blank">
-                  Timothy Lin
-                </a>{" "}
-                for the minimal, lightweight, and super easy-to-customize blog
-                starter.
-              </p>
-              <p>
-                A few major over-engineering-changes from the original repo:
-              </p>
-              <ul>
-                <li>
-                  <Twemoji emoji="atom-symbol" /> Upgrading to{" "}
-                  <strong>React v18</strong>, <strong>Next v14</strong>
-                  (Using App router)
-                </li>
-                <li>
-                  <Twemoji emoji="party-popper" /> Adopting{" "}
-                  <strong>Typescript</strong>, committing with{" "}
-                  <a
-                    href="https://www.conventionalcommits.org/"
-                    target="_blank"
-                  >
-                    Conventional Commits
-                  </a>
-                </li>
-                <li>
-                  <Twemoji emoji="bar-chart" /> Monitoring site with{" "}
-                  <a href="https://umami.is/" target="_blank">
-                    Umami
-                  </a>{" "}
-                  website analytics
-                </li>
-                <li>
-                  <Twemoji emoji="eyes" /> Theming in dark mode with{" "}
-                  <a
-                    href="https://github.blog/changelog/2021-04-14-dark-and-dimmed-themes-are-now-generally-available/"
-                    target="_blank"
-                  >
-                    Github dark dimmed
-                  </a>{" "}
-                  colors for better contrast
-                </li>
-                <li>
-                  <Twemoji emoji="man-technologist" /> Making a lot of changes
-                  to the UI, new homepage design, adding{" "}
-                  <code>ProfileCard</code>, <code>CareerTimeline</code>{" "}
-                  components, adding <code>/snippets</code>, <code>/books</code>
-                  , <code>/movies</code> page, etc.
-                </li>
-                {/* <li>
-                  <Twemoji emoji="inbox-tray" /> Bumping up <code>mdx-bundler</code>,{' '}
-                  <code>rehype</code>/<code>remark</code> plugins and dependencies to the latest
-                  version
-                </li> */}
-              </ul>
-              <p>
-                See my{" "}
+                Tôi luôn sẵn sàng kết nối và thảo luận về công nghệ:{" "}
                 <a
-                  href="https://github.com/hta218/leohuynh.dev"
-                  target="_blank"
+                  href={`mailto:${SITE_METADATA.email}`}
+                  className="text-primary-500 hover:text-primary-600 no-underline"
                 >
-                  Github repository
-                </a>{" "}
-                for this blog.
-              </p>
-              <div>
-                <h3>Legacy versions</h3>
-                <p>
-                  I started this blog since 2019 and up until now it has 2
-                  legacy versions:
-                </p>
-                <ul>
-                  <li>
-                    <code>v1</code> built with <strong>NextJS v13</strong> using
-                    Page router:{" "}
-                    <a
-                      href="https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/"
-                      target="_blank"
-                    >
-                      https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/
-                    </a>
-                  </li>
-                  <li>
-                    <code>v0</code> built with <strong>Gatsby</strong>:{" "}
-                    <a
-                      href="https://leo-blog-legacy.vercel.app/"
-                      target="_blank"
-                    >
-                      https://leo-blog-legacy.vercel.app/
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <h2>Assets</h2>
-              <p>
-                Most of the images in my blog are from{" "}
-                <a href="https://unsplash.com/" target="_blank">
-                  Unsplash
-                </a>
-                , gifs from{" "}
-                <a href="https://giphy.com/" target="_blank">
-                  GIPHY
-                </a>
-                , and illustrations are from{" "}
-                <a href="https://storyset.com/" target="_blank">
-                  Storyset
-                </a>
-                .
-              </p>
-              <p>
-                Thanks for the free resources <Twemoji emoji="folded-hands" />.
-              </p>
-            </div>
-            <div>
-              <h2>Contact</h2>
-              <p>
-                Reach out to me at{" "}
-                <a href={`mailto:${SITE_METADATA.email}`}>
                   {SITE_METADATA.email}
-                </a>{" "}
-                or find me on social media:
+                </a>
               </p>
-              <SocialAccounts />
-            </div>
-            <div>
-              <h2>Support</h2>
-              <p>If you appreciate my work, consider supporting me:</p>
-              <div className="flex flex-col gap-4">
-                <a
-                  href={SITE_METADATA.support.buyMeACoffee}
-                  target="_blank"
-                  className="[&_.image-container]:mx-0"
-                >
-                  <Image
-                    src="/static/images/bmc-button.png"
-                    alt="Buy Me A Coffee"
-                    width={213.7}
-                    height={60}
-                    style={{ height: 60 }}
-                  />
-                </a>
-                <a
-                  href={SITE_METADATA.support.paypal}
-                  target="_blank"
-                  className="flex h-15 w-[214px] items-center rounded-lg bg-[#009cde]/70 p-1"
-                >
-                  <Image
-                    src="/static/images/paypal-logo.png"
-                    alt="Donate via PayPal"
-                    width={225.88}
-                    height={60}
-                    style={{ height: 30, width: "auto" }}
-                  />
-                </a>
-                <a
-                  href={SITE_METADATA.support.kofi}
-                  target="_blank"
-                  className="[&_.image-container]:mx-0"
-                >
-                  <Image
-                    src="/static/images/kofi.png"
-                    alt="Support me on Ko-fi"
-                    width={297}
-                    height={60}
-                    style={{ height: 60, width: "auto" }}
-                  />
-                </a>
+              <div className="mt-4">
+                <SocialAccounts />
               </div>
-            </div>
+            </section>
+
+            {children && <div className="mt-12">{children}</div>}
           </div>
         </div>
       </div>

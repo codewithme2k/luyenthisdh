@@ -1,4 +1,4 @@
-import type { Blog, Snippet } from "contentlayer/generated";
+import type { Blog, Tool } from "contentlayer/generated";
 import type { ReactNode } from "react";
 import { BlogMeta } from "@/components/blog/blog-meta";
 import { Comments } from "@/components/blog/comments";
@@ -16,16 +16,16 @@ import { Container } from "@/components/customs/Container";
 import { StatsType } from "@/generated/prisma/enums";
 
 interface PostSimpleProps {
-  content: CoreContent<Blog | Snippet>;
+  content: CoreContent<Blog | Tool>;
   children: ReactNode;
   next?: { path: string; title: string };
   prev?: { path: string; title: string };
 }
 
 export function PostSimple({ content, children }: PostSimpleProps) {
-  let { slug, date, lastmod, title, type, tags, readingTime, filePath } =
+  const { slug, date, lastmod, title, type, tags, readingTime, filePath } =
     content;
-  let postUrl = `${SITE_METADATA.siteUrl}/${type.toLowerCase()}/${slug}`;
+  const postUrl = `${SITE_METADATA.siteUrl}/${type.toLowerCase()}/${slug}`;
 
   return (
     <Container className="pt-4 lg:pt-12">

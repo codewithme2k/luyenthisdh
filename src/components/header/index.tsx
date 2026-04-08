@@ -34,7 +34,6 @@ function logASCIItext() {
 export function Header() {
   const pathname = usePathname();
 
-  // Gọi hàm log một lần duy nhất khi mount
   useEffect(() => {
     logASCIItext();
   }, []);

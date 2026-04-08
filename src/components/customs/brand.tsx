@@ -43,9 +43,10 @@ import Env from "@/components/icons/env.svg";
 import Html from "@/components/icons/html5.svg";
 import Postcss from "@/components/icons/postcss.svg";
 import Commitlint from "@/components/icons/commitlint.svg";
+import Calculator from "@/components/icons/calculator.svg";
 import Link from "next/link";
 
-export let BrandsMap: Record<
+export const BrandsMap: Record<
   string,
   {
     Icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -247,6 +248,10 @@ export let BrandsMap: Record<
     Icon: Pnpm,
     url: "https://pnpm.io/",
   },
+  Calculator: {
+    Icon: Calculator,
+    url: "#",
+  },
 };
 
 export function Brand(props: {
@@ -255,8 +260,8 @@ export function Brand(props: {
   className?: string;
   iconClassName?: string;
 }) {
-  let { name, as = "link", className, iconClassName } = props;
-  let { Icon, url } = BrandsMap[name] || {};
+  const { name, as = "link", className, iconClassName } = props;
+  const { Icon, url } = BrandsMap[name] || {};
 
   if (!Icon)
     return <span className="hidden">Missing brand icon for {name}</span>;
@@ -266,7 +271,7 @@ export function Brand(props: {
   }
 
   return (
-    <Link href={`${url}?ref=leohuynh.dev`} className={className}>
+    <Link href={`${url}?ref=#`} className={className}>
       <Icon className={iconClassName} fill="currentColor" />
     </Link>
   );

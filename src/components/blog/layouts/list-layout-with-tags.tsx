@@ -1,42 +1,43 @@
 "use client";
 
 import { clsx } from "clsx";
-import type { Blog, Snippet } from "contentlayer/generated";
+import type { Blog, Tool } from "contentlayer/generated";
 import { useState } from "react";
 import { PostCardGridView } from "@/components/blog/post-card-grid-view";
 import { Tag } from "@/components/blog/tags";
-import { SnippetCard } from "@/components/customs/cards/snippet";
+import { ToolCard } from "@/components/customs/cards/tool";
 
 import tagData from "@/json/tag-data.json";
 import type { CoreContent } from "@/shared/types/data";
 import { Container } from "@/components/customs/Container";
+import { PageHeader } from "@/components/customs/page-header";
 
 interface ListLayoutProps {
   title: string;
   description: React.ReactNode;
   posts: CoreContent<Blog>[];
-  snippets: CoreContent<Snippet>[];
+  tools: CoreContent<Tool>[];
 }
 
 export function ListLayoutWithTags({
   title,
   description,
   posts,
-  snippets,
+  tools,
 }: ListLayoutProps) {
-  let hasBlogs = posts.length > 0;
-  let hasSnippets = snippets.length > 0;
-  let [view, setView] = useState<"blogs" | "snippets">(
-    hasBlogs ? "blogs" : "snippets",
+  const hasBlogs = posts.length > 0;
+  const hasTools = tools.length > 0;
+  const [view, setView] = useState<"blogs" | "tools">(
+    hasBlogs ? "blogs" : "tools",
   );
 
   return (
     <Container className="pt-4 lg:pt-12">
-      {/* <PageHeader
+      <PageHeader
         title={title}
         description={description}
         className="border-b border-gray-200 dark:border-gray-700"
-      /> */}
+      />
       <div className="flex gap-x-12">
         <TagsList />
         <div className="py-5 md:py-10">
@@ -54,16 +55,16 @@ export function ListLayoutWithTags({
                 Blogs
               </button>
             )}
-            {hasBlogs && hasSnippets ? <span>/</span> : null}
-            {hasSnippets && (
+            {hasBlogs && hasTools ? <span>/</span> : null}
+            {hasTools && (
               <button
                 className={clsx(
                   "underline-offset-4",
-                  view === "snippets"
+                  view === "tools"
                     ? "underline"
                     : "text-gray-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100",
                 )}
-                onClick={() => setView("snippets")}
+                onClick={() => setView("tools")}
               >
                 Snippets
               </button>
@@ -79,8 +80,8 @@ export function ListLayoutWithTags({
             </ul>
           ) : (
             <div className="space-y-10">
-              {snippets.map((snippet) => (
-                <SnippetCard snippet={snippet} key={snippet.path} />
+              {tools.map((tool) => (
+                <ToolCard tool={tool} key={tool.path} />
               ))}
             </div>
           )}
@@ -91,9 +92,9 @@ export function ListLayoutWithTags({
 }
 
 function TagsList() {
-  let tagCounts = tagData as Record<string, number>;
-  let tagKeys = Object.keys(tagCounts);
-  let sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
+  const tagCounts = tagData as Record<string, number>;
+  const tagKeys = Object.keys(tagCounts);
+  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
 
   return (
     <div className="hidden max-h-screen w-[300px] shrink-0 py-5 md:flex md:py-10">

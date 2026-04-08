@@ -1,14 +1,23 @@
 import type { Document, MDX } from "contentlayer2/core";
-
-export type SpotifyNowPlayingData = {
-  song?: { songUrl: any; title: any; artist: any; albumImageUrl: any };
-  isPlaying: boolean;
-  songUrl?: string;
-  title?: string;
-  artist?: string;
-  album?: string;
-  albumImageUrl?: string;
+export type SpotifySong = {
+  songUrl: string;
+  title: string;
+  artist: string;
+  album: string;
+  albumImageUrl: string;
 };
+
+export type SpotifyNowPlayingData =
+  | { isPlaying: false }
+  | { isPlaying: true; song: SpotifySong };
+
+export type NowPlayingData =
+  | { ok: true; song: SpotifySong }
+  | { ok: false; error: string };
+
+export type RecentlyPlayedData =
+  | { ok: true; song: SpotifySong & { playedAt: string } }
+  | { ok: false; error: string };
 
 export type Project = {
   type: "work" | "self";

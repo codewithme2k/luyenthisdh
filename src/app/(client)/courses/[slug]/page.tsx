@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import CourseDetailClient from "@/components/course/CourseDetailClient";
 import { CheckMemberShip } from "@/shared/actions/membership";
 import { Header } from "@/components/header";
+import { Container } from "@/components/customs/Container";
 
 export default async function CourseDetailPage({
   params,
@@ -34,10 +35,12 @@ export default async function CourseDetailPage({
   return (
     <>
       <Header />
-      <CourseDetailClient
-        course={JSON.parse(JSON.stringify(course))}
-        isVipServer={!!isVip}
-      />
+      <Container className="pt-4 lg:pt-12">
+        <CourseDetailClient
+          course={JSON.parse(JSON.stringify(course))}
+          isVipServer={!!isVip}
+        />
+      </Container>
     </>
   );
 }

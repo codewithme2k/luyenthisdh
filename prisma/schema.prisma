@@ -144,7 +144,7 @@ model TwoFactorConfirmation {
 
 enum StatsType {
   blog
-  snippet
+  tool
 }
 
 model Stats {

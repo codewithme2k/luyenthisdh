@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { type Snippet } from "contentlayer/generated";
+import { type Tool } from "contentlayer/generated";
 import type { BrandsMap } from "@/components/customs/brand";
 import { Brand } from "@/components/customs/brand";
 import { GradientBorder } from "@/components/customs/gradient-border";
@@ -9,8 +9,8 @@ import { TiltedGridBackground } from "@/components/customs/tilted-grid-backgroun
 import { CoreContent } from "@/shared/types/data";
 import Link from "next/link";
 
-export function SnippetCard({ snippet }: { snippet: CoreContent<Snippet> }) {
-  let { icon, heading, summary, title, path } = snippet;
+export function ToolCard({ tool }: { tool: CoreContent<Tool> }) {
+  const { icon, heading, summary, title, path } = tool;
   return (
     <GradientBorder className="rounded-2xl">
       <Link

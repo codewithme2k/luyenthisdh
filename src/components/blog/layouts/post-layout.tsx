@@ -1,4 +1,4 @@
-import type { Author, Blog } from "contentlayer/generated";
+import type { Author, Blog, Tool } from "contentlayer/generated";
 import type { ReactNode } from "react";
 
 import { Banner } from "@/components/blog/banner";
@@ -19,15 +19,15 @@ import { Container } from "@/components/customs/Container";
 import { StatsType } from "@/generated/prisma/enums";
 
 interface LayoutProps {
-  content: CoreContent<Blog>;
+  content: CoreContent<Blog | Tool>;
   authorDetails: CoreContent<Author>[];
-  next?: { path: string; title: string };
-  prev?: { path: string; title: string };
+  next?: CoreContent<Blog | Tool>;
+  prev?: CoreContent<Blog | Tool>;
   children: ReactNode;
 }
 
 export function PostLayout({ content, next, prev, children }: LayoutProps) {
-  let {
+  const {
     slug,
     images,
     lastmod,
@@ -39,7 +39,7 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
     toc,
     type,
   } = content;
-  let postUrl = `${SITE_METADATA.siteUrl}/${type.toLowerCase()}/${slug}`;
+  const postUrl = `${SITE_METADATA.siteUrl}/${type.toLowerCase()}/${slug}`;
 
   return (
     <Container className="pt-4 lg:pt-12">

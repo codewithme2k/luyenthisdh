@@ -7,7 +7,7 @@ import {
 
 export default function Features() {
   return (
-    <section className="py-20">
+    <section className="">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
           {

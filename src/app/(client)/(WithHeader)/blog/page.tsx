@@ -6,16 +6,16 @@ import { POSTS_PER_PAGE } from "@/shared/constants";
 import { ListLayout } from "@/components/blog/layouts/list-layout";
 import { genPageMetadata } from "@/app/seo";
 
-export let metadata = genPageMetadata({ title: "Blog" });
+export const metadata = genPageMetadata({ title: "Blog" });
 
 export default function BlogPage() {
-  let posts = allCoreContent(sortPosts(allBlogs));
-  let pageNumber = 1;
-  let initialDisplayPosts = posts.slice(
+  const posts = allCoreContent(sortPosts(allBlogs));
+  const pageNumber = 1;
+  const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber,
   );
-  let pagination = {
+  const pagination = {
     currentPage: pageNumber,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   };

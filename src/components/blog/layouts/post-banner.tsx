@@ -22,7 +22,7 @@ interface LayoutProps {
 }
 
 export function PostBanner({ content, children }: LayoutProps) {
-  let {
+  const {
     slug,
     type,
     title,
@@ -33,7 +33,7 @@ export function PostBanner({ content, children }: LayoutProps) {
     tags,
     filePath,
   } = content;
-  let postUrl = `${SITE_METADATA.siteUrl}/${type.toLowerCase()}/${slug}`;
+  const postUrl = `${SITE_METADATA.siteUrl}/${type.toLowerCase()}/${slug}`;
 
   return (
     <Container className="pt-4 lg:pt-12">
@@ -81,7 +81,7 @@ export function PostBanner({ content, children }: LayoutProps) {
 }
 
 function Credit({ image, className }: { image: string; className?: string }) {
-  let [, author, id] = image.split("__");
+  const [author, id] = image.split("__");
   if (author && id) {
     return (
       <div className={clsx("text-right text-sm italic", className)}>
