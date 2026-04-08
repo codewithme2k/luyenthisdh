@@ -54,12 +54,13 @@ export async function GET(request: Request) {
     if (rating) {
       const ratingValue = parseInt(rating);
       if (!isNaN(ratingValue)) {
-        // Nếu rating là một mảng (list), sử dụng hasSome hoặc hasEvery
-        where.rating = {
-          hasSome: [ratingValue],
+        where.Rating = {
+          some: {
+            score: {
+              gte: ratingValue,
+            },
+          },
         };
-        // Nếu rating là một trường số (float/int), sử dụng gte
-        // where.rating = { gte: ratingValue };
       }
     }
 
