@@ -86,7 +86,7 @@ export function useCourseContent(
       });
 
       if (result.isConfirmed) {
-        const data = await deleteLecture(lectureId, courseData.id.toString());
+        const data = await deleteLecture(lectureId);
         if (data.success === true) {
           toast.success("Xoá thành công");
           router.refresh();
