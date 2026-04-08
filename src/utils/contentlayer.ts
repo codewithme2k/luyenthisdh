@@ -1,6 +1,6 @@
 import type { CoreContent, MDXDocument } from "@/shared/types/data";
 
-let isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === "production";
 
 /**
  * A typesafe omit helper function

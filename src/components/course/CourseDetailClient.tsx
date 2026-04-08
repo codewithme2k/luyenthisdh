@@ -85,7 +85,7 @@ export default function CourseDetailClient({ course, isVipServer }: Props) {
               {[
                 {
                   icon: Star,
-                  text: `${course.rating[0] || 5.0} Đánh giá`,
+                  text: `${course.rating_avg || 5.0} Đánh giá`,
                   color: "text-yellow-400",
                 },
                 {

@@ -5,7 +5,7 @@ import { fetcher } from "@/utils/misc";
 import { Stats, StatsType } from "@/generated/prisma/client";
 
 export function useBlogStats(type: StatsType, slug: string) {
-  let { data, isLoading } = useSWR<Stats>(
+  const { data, isLoading } = useSWR<Stats>(
     `/api/stats?slug=${slug}&type=${type}`,
     fetcher,
     {
@@ -14,8 +14,8 @@ export function useBlogStats(type: StatsType, slug: string) {
       revalidateOnReconnect: false,
     },
   );
-  let { views, loves, applauses, ideas, bullseyes } = data || {};
-  let stats: Stats = {
+  const { views, loves, applauses, ideas, bullseyes } = data || {};
+  const stats: Stats = {
     id: "",
     type,
     slug,
@@ -29,7 +29,7 @@ export function useBlogStats(type: StatsType, slug: string) {
 }
 
 export function useUpdateBlogStats() {
-  let { trigger } = useSWRMutation(
+  const { trigger } = useSWRMutation(
     "/api/stats",
     async (url: string, { arg }: { arg: Partial<Stats> }) => {
       return fetch(url, {
