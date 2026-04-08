@@ -1,10 +1,9 @@
-// page.tsx
-import { ECourseStatus } from "@/components/admin/course/EditCourse";
 import ArticleList from "@/components/course";
 import { Container } from "@/components/customs/Container";
 import { PageHeader } from "@/components/customs/page-header";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ECourseStatus } from "@/generated/prisma";
 import { db } from "@/lib/prisma";
 
 export default async function page() {
