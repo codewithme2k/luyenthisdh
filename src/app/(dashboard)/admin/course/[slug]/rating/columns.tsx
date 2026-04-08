@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import Swal from "sweetalert2";
-import { ERatingStatus, Rating } from "@/generated/prisma/client";
+import { ERatingStatus, Rating } from "@/generated/prisma";
 const RatingStatus: Record<
   ERatingStatus,
   {

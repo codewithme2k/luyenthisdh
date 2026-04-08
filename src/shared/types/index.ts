@@ -1,4 +1,4 @@
-import { Course, Lecture, Lesson, Subject } from "@/generated/prisma/client";
+import { Course, Lecture, Lesson, Subject } from "@/generated/prisma";
 import { Session } from "next-auth";
 
 export type lectureList = (Lecture & { Lessons: Lesson[] })[];

@@ -8,7 +8,7 @@ import { useDroppable } from "@dnd-kit/core";
 import { cn } from "@/lib/utils";
 
 import { DraggableLessonItem } from "./DraggableLessonItem";
-import { Lecture, Lesson } from "@/generated/prisma/client";
+import { Lecture, Lesson } from "@/generated/prisma";
 
 interface SortableLessonsContainerProps {
   lectureId: string;

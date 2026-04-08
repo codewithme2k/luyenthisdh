@@ -38,12 +38,8 @@ import { ComboBox } from "@/components/customs/Combobox";
 import { UploadDropzone } from "@/lib/uploadthing";
 
 import { cn } from "@/lib/utils";
+import { Course, ECourseLevel, ECourseStatus } from "@/generated/prisma";
 // Chỗ này Hữu lưu ý: Import enum từ Prisma Client mới
-import {
-  type Course,
-  ECourseLevel,
-  ECourseStatus,
-} from "@/generated/prisma/client";
 
 const actionClassName =
   "size-8 flex items-center justify-center bg-primary dark:bg-primary rounded p-2 transition-all hover:text-gray-500 dark:hover:text-opacity-80";

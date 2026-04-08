@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { updateCourseWithLecture } from "../actions/course.action";
 import { useRouter } from "next/navigation";
 import slugify from "slugify";
-import { Course, Lecture, Lesson } from "@/generated/prisma/client";
+import { Course, Lecture, Lesson } from "@/generated/prisma";
 import { deleteLecture } from "@/shared/actions/lecture.actions";
 import { createLesson, deleteLesson } from "@/shared/actions/lesson.actions";
 

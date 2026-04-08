@@ -27,7 +27,7 @@ import { commonButtonClassName } from "@/shared/constants";
 import { BookText, Pen, Trash2 } from "lucide-react";
 import { lectureList } from "@/shared/types";
 import Link from "next/link";
-import { Course } from "@/generated/prisma/client";
+import { Course } from "@/generated/prisma";
 
 interface CourseContentProps {
   data: Course & { Lectures: lectureList };

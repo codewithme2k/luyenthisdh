@@ -5,7 +5,7 @@ import { arrayMove } from "@dnd-kit/sortable";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-import { Lesson } from "@/generated/prisma/client";
+import { Lesson } from "@/generated/prisma";
 import {
   updateLectureLessonOrder,
   updateLessonOrder,

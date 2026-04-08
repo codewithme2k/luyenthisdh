@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 
 import { FileText, UploadCloud } from "lucide-react";
 import { uploadCourseLectureLesson } from "@/shared/actions/course.action";
-import { Course } from "@/generated/prisma/client";
+import { Course } from "@/generated/prisma";
 
 export default function UploadLecture({
   course,

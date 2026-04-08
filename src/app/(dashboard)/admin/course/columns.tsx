@@ -14,7 +14,7 @@ import Link from "next/link";
 import { StatusSwitch } from "@/components/customs/CustomSwitch";
 import Image from "next/image";
 import { changeCourseStatus } from "@/shared/actions/course.action";
-import { Course, ECourseStatus, Subject } from "@/generated/prisma/client";
+import { Course, ECourseStatus, Subject } from "@/generated/prisma";
 export const CourseStatus: Record<
   ECourseStatus,
   {

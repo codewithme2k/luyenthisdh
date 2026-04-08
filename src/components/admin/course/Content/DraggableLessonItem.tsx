@@ -14,7 +14,7 @@ import {
 import { LessonEditForm } from "./LessonEditForm";
 import LessonItemUpdate from "./LessonItemUpdate";
 import { Pen, Trash2, GripVertical, PlayCircle } from "lucide-react";
-import { Lecture, Lesson } from "@/generated/prisma/client";
+import { Lecture, Lesson } from "@/generated/prisma";
 
 interface DraggableLessonItemProps {
   lesson: Lesson;

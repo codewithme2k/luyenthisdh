@@ -11,7 +11,7 @@ import {
 
 import { toast } from "sonner";
 import { updateLesson } from "@/shared/actions/lesson.actions";
-import type { Lesson } from "@/generated/prisma/client";
+import type { Lesson } from "@/generated/prisma";
 import { convertSlug } from "@/lib/commons";
 
 interface LessonEditFormProps {

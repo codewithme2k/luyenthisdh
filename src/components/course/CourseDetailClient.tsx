@@ -16,7 +16,7 @@ import {
   CheckCircle2,
   Calendar,
 } from "lucide-react";
-import { Lesson } from "@/generated/prisma/client";
+import { Lesson } from "@/generated/prisma";
 import { CourseFullDetails, LectureWithLessons } from "@/shared/types";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";

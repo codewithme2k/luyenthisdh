@@ -2,7 +2,7 @@ import slugify from "slugify";
 import { currentUser } from "@/shared/hooks/auth";
 import { db } from "@/lib/prisma";
 import { NextResponse } from "next/server";
-import { ECourseLevel, Prisma } from "@/generated/prisma/client";
+import { ECourseLevel, Prisma } from "@/generated/prisma";
 
 export async function GET(request: Request) {
   try {

@@ -14,7 +14,7 @@ import Link from "next/link";
 import { StatusSwitch } from "@/components/customs/CustomSwitch";
 import { changeSubjectStatus } from "@/shared/actions/subject.action";
 import Image from "next/image";
-import { ESubjectStatus, Subject } from "@/generated/prisma/client";
+import { ESubjectStatus, Subject } from "@/generated/prisma";
 const SubjectStatus: Record<
   ESubjectStatus,
   {

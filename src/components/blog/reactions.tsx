@@ -8,7 +8,7 @@ import {
   useBlogStats,
   useUpdateBlogStats,
 } from "@/shared/hooks/use-blog-stats";
-import { Stats, StatsType } from "@/generated/prisma/client";
+import { Stats, StatsType } from "@/generated/prisma";
 
 const MAX_REACTIONS = 10;
 

@@ -15,7 +15,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Lesson, Lecture } from "@/generated/prisma/client";
+import { Lesson, Lecture } from "@/generated/prisma";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 

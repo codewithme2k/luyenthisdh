@@ -15,7 +15,7 @@ import { format } from "date-fns";
 import { OrderStatus } from "@/shared/constants";
 import { StatusSwitch } from "@/components/customs/CustomSwitch";
 import { changeOrderStatus } from "@/shared/actions/order.action";
-import { Membership, Order, User } from "@/generated/prisma/client";
+import { Membership, Order, User } from "@/generated/prisma";
 export const columns: ColumnDef<
   Order & {
     Membership: Membership | null;

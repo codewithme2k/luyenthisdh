@@ -17,7 +17,7 @@ import { Switch } from "@/components/ui/switch";
 import { updateLesson } from "@/shared/actions/lesson.actions";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Lecture, Lesson } from "@/generated/prisma/client";
+import { Lecture, Lesson } from "@/generated/prisma";
 import { Save } from "lucide-react";
 
 interface LessonItemUpdateProps {
