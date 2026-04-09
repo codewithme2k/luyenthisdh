@@ -33,13 +33,13 @@ export const PROJECTS: Project[] = [
   },
 ];
 export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
-  let { title, description, imgSrc, url, repo, builtWith, links } = project;
-  let { data: repository } = useSWR<GithubRepository>(
+  const { title, description, imgSrc, url, repo, builtWith, links } = project;
+  const { data: repository } = useSWR<GithubRepository>(
     `/api/github?repo=${repo}`,
     fetcher,
   );
-  let href = repository?.url || url;
-  let lang = repository?.languages?.[0];
+  const href = repository?.url || url;
+  const lang = repository?.languages?.[0];
 
   return (
     <GradientBorder

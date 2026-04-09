@@ -24,14 +24,14 @@ export function remarkCodeTitles() {
 
         parent.children.splice(index, 0, {
           type: "mdxJsxFlowElement",
-          // @ts-ignore
           name: "CodeTitle",
           attributes: [
             { type: "mdxJsxAttribute", name: "lang", value: language },
             { type: "mdxJsxAttribute", name: "title", value: title },
           ],
           data: { _xdmExplicitJsx: true },
-        });
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any);
         node.lang = language;
       },
     );

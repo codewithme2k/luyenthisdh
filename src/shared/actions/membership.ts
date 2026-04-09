@@ -28,25 +28,14 @@ function generateOrderCode(): string {
 
 export async function memberShip(planId: string) {
   const user = await currentUser();
-
-  if (!user) {
-    return { success: false, message: "Unauthorized" };
-  }
+  if (!user) return { success: false, message: "Unauthorized" };
 
   try {
     const pendingOrder = await db.order.findFirst({
-      where: {
-        userId: user.id,
-        status: EOrderStatus.PENDING,
-      },
+      where: { userId: user.id, status: EOrderStatus.PENDING },
     });
-
     if (pendingOrder) {
-      return {
-        success: false,
-        message:
-          "Bạn vẫn có đơn hàng chưa thanh toán. Vui lòng hoàn tất đơn hàng cũ trước.",
-      };
+      return { success: false, message: "Bạn còn đơn hàng chưa thanh toán." };
     }
 
     const now = new Date();
@@ -77,24 +66,21 @@ export async function memberShip(planId: string) {
         where: { userId: user.id },
       });
 
-      if (membership) {
-        // Nếu đã có membership, cập nhật thông tin gói mới nhưng để isActive = false
-        // Đợi đến khi thanh toán thành công ở hàm changeOrderStatus mới bật true
-        membership = await tx.membership.update({
-          where: { id: membership.id },
-          data: {
-            plan: planId as EVipPlan,
-            endDate: endDate,
-            isActive: false,
-          },
-        });
-      } else {
-        // Nếu chưa từng có, tạo mới hoàn toàn
+      if (!membership) {
         membership = await tx.membership.create({
           data: {
             userId: user.id,
             plan: planId as EVipPlan,
             startDate: now,
+            endDate: endDate,
+            isActive: false,
+          },
+        });
+      } else {
+        membership = await tx.membership.update({
+          where: { id: membership.id },
+          data: {
+            plan: planId as EVipPlan,
             endDate: endDate,
             isActive: false,
           },
@@ -134,4 +120,35 @@ export async function memberShip(planId: string) {
     console.error("Lỗi tạo đơn hàng:", error);
     return { success: false, message: "Đã xảy ra lỗi hệ thống." };
   }
+}
+export async function CheckMemberShip() {
+  const user = await currentUser();
+  if (!user) {
+    return {
+      success: false,
+      message: "Unauthorized",
+      plan: null,
+      isExpired: null,
+    };
+  }
+
+  const membership = await db.membership.findUnique({
+    where: { userId: user.id, isActive: true },
+  });
+
+  if (!membership) {
+    return {
+      success: false,
+      plan: null,
+      isExpired: null,
+    };
+  }
+
+  const now = new Date();
+  const isExpired = membership.endDate !== null && membership.endDate < now;
+  return {
+    success: true,
+    plan: membership.plan,
+    isExpired,
+  };
 }

@@ -38,7 +38,7 @@ export function UserMenu({ session }: { session: any }) {
         <div
           className={clsx("relative size-8 rounded-full overflow-hidden", {
             "ring-4 ring-yellow-400": plan === "LIFETIME",
-            "ring-2 ring-gray-400": plan === "MONTHLY",
+            "ring-2 ring-green-400": plan === "MONTHLY",
             "ring-2 ring-indigo-400": plan === "HALF_YEAR",
             "ring-2 ring-orange-500": plan === "YEARLY",
           })}
@@ -54,7 +54,7 @@ export function UserMenu({ session }: { session: any }) {
               "border border-white", // viền trắng nếu muốn
               {
                 "ring-4 ring-yellow-400": plan === "LIFETIME",
-                "ring-2 ring-gray-400": plan === "MONTHLY",
+                "ring-2 ring-green-400": plan === "MONTHLY",
                 "ring-2 ring-indigo-400": plan === "HALF_YEAR",
                 "ring-2 ring-orange-500": plan === "YEARLY",
               },
