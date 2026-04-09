@@ -51,7 +51,7 @@ const SLIDES = [
 
 export default function BannerCarousel() {
   const plugin = React.useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: true }),
+    Autoplay({ delay: 2500, stopOnInteraction: true }),
   );
 
   return (

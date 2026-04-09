@@ -25,7 +25,6 @@ export function UserMenu({ session }: { session: any }) {
   useEffect(() => {
     const fetchMembership = async () => {
       const res = await CheckMemberShip();
-      console.log(res);
       if (res.success && res.plan && !res.isExpired) {
         setPlan(res.plan);
       }
@@ -50,8 +49,8 @@ export function UserMenu({ session }: { session: any }) {
           <span
             className={clsx(
               "absolute bottom-0 left-1/2 -translate-x-1/2",
-              "w-2 h-2 rotate-45", // kích thước vuông 8x8px
-              "border border-white", // viền trắng nếu muốn
+              "w-2 h-2 rotate-45",
+              "border border-white",
               {
                 "ring-4 ring-yellow-400": plan === "LIFETIME",
                 "ring-2 ring-green-400": plan === "MONTHLY",
@@ -62,15 +61,15 @@ export function UserMenu({ session }: { session: any }) {
           />
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="end" className="w-full">
         <DropdownMenuLabel>
           <div className="font-medium">{name}</div>
           <div className="text-xs text-muted-foreground">{email}</div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <Link href="/dashboard">Dashboard</Link>
-        </DropdownMenuItem>
+        <Link href="/dashboard">
+          <DropdownMenuItem>Dashboard</DropdownMenuItem>
+        </Link>
         <DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

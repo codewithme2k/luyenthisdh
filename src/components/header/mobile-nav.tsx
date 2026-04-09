@@ -6,7 +6,6 @@ import { Menu } from "lucide-react";
 import { Twemoji } from "@/components/customs/twemoji";
 import { Logo } from "./logo";
 
-// Import Shadcn UI
 import {
   Sheet,
   SheetContent,
@@ -20,13 +19,11 @@ import { HEADER_NAV_LINKS, MORE_NAV_LINKS } from "@/shared/constants/menu";
 export function MobileNav() {
   const [open, setOpen] = useState(false);
 
-  // Gộp các link lại một lần
   const allLinks = [...HEADER_NAV_LINKS, ...MORE_NAV_LINKS];
 
   return (
     <div className="sm:hidden">
       <Sheet open={open} onOpenChange={setOpen}>
-        {/* Trigger: Nút bấm để mở menu */}
         <SheetTrigger asChild>
           <button
             type="button"
@@ -38,12 +35,10 @@ export function MobileNav() {
           </button>
         </SheetTrigger>
 
-        {/* Content: Nội dung Menu bay từ phải vào */}
         <SheetContent
           side="right"
           className="w-full p-0 border-none bg-white dark:bg-gray-950"
         >
-          {/* Header bên trong Menu */}
           <div className="flex items-center gap-3 pt-8 pl-10 border-b border-gray-100 dark:border-gray-800 pb-6">
             <Logo />
             <SheetTitle className="font-bold text-xl tracking-tight">
@@ -51,7 +46,6 @@ export function MobileNav() {
             </SheetTitle>
           </div>
 
-          {/* Danh sách Links điều hướng */}
           <nav className="mt-8 flex flex-col items-start gap-2 px-10 overflow-y-auto h-[calc(100vh-150px)]">
             {allLinks.map((link) => (
               <Link

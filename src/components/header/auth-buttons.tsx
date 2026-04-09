@@ -17,22 +17,18 @@ export function AuthButtons({
   setSignupOpen,
 }: AuthButtonsProps) {
   const { data: session, status } = useSession();
-
-  // Nếu chưa tải xong session, có thể hiện loading (nếu cần)
   if (status === "loading") return null;
 
-  // Nếu đã đăng nhập → hiện Avatar
   if (session?.user) {
     return (
-      <div className="hidden md:flex items-center gap-2">
+      <div className=" items-center gap-2">
         <UserMenu session={session} />
       </div>
     );
   }
 
-  // Nếu chưa đăng nhập → hiện Login/Register
   return (
-    <div className="hidden md:flex items-center gap-2">
+    <div className="flex items-center gap-2">
       <LoginDialogTrigger
         open={loginOpen}
         onOpenChange={setLoginOpen}

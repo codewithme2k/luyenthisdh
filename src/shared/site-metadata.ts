@@ -7,7 +7,7 @@ export const SITE_METADATA = {
   language: "en-us",
   theme: "system",
   siteUrl: "https://luyenthisdh.vercel.app",
-  siteRepo: "https://github.com/22thag6/luyenthisdh",
+  siteRepo: "https://github.com/codewithme2k/luyenthisdh",
   siteLogo: `${process.env.BASE_PATH || ""}/static/images/logo.jpg`,
   socialBanner: `${process.env.BASE_PATH || ""}/static/images/twitter-card.jpeg`,
   email: "22thag6@gmail.com",

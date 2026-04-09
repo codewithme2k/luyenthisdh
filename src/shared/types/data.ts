@@ -158,3 +158,34 @@ export type MDXDocumentDate = MDXDocument & {
 };
 
 export type CoreContent<T> = Omit<T, "body" | "_raw" | "_id">;
+
+export type GithubActivity = {
+  type: "commit" | "pullRequest" | "issue";
+  createdAt: string;
+  url: string;
+  title: string;
+  repository: {
+    name: string;
+    nameWithOwner: string;
+    url: string;
+    owner: {
+      avatarUrl: string;
+      login: string;
+      url: string;
+    };
+  };
+};
+export type GithubCommitActivity = GithubActivity & {
+  type: "commit";
+  message: string;
+  abbreviatedOid: string;
+};
+export type GithubPullRequestActivity = GithubActivity & {
+  type: "pullRequest";
+  state: "OPEN" | "CLOSED" | "MERGED";
+  number: number;
+};
+export type GithubUserActivity = {
+  commit: GithubCommitActivity | null;
+  pullRequest: GithubPullRequestActivity | null;
+};

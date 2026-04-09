@@ -321,8 +321,8 @@ export const HEADER_NAV_LINKS = [
 ];
 
 export const MORE_NAV_LINKS = [
-  { href: "/books", title: "Books", emoji: "books" },
-  { href: "/movies", title: "Movies", emoji: "film-frames" },
+  { href: "/membership", title: "Membership", emoji: "user" },
+  { href: "/drug", title: "Drugs", emoji: "pill" },
   { href: "/tags", title: "Tags", emoji: "label" },
 ];
 
