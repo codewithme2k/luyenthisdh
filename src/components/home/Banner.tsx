@@ -80,7 +80,7 @@ export default function BannerCarousel() {
                     <div className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[2px]">
                       {slide.badge}
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tighter font-heading">
+                    <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tighter font-heading">
                       {" "}
                       {/* Thêm font-serif để tên to rõ hơn */}
                       {slide.title.split(" ").map((word, i) =>
@@ -101,7 +101,7 @@ export default function BannerCarousel() {
                           ` ${word} `
                         ),
                       )}
-                    </h1>
+                    </h2>
                     <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg">
                       {slide.description}
                     </p>

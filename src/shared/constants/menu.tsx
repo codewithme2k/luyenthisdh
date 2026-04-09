@@ -322,6 +322,7 @@ export const HEADER_NAV_LINKS = [
 
 export const MORE_NAV_LINKS = [
   { href: "/membership", title: "Membership", emoji: "user" },
+  { href: "/quiz", title: "Quiz", emoji: "quiz" },
   { href: "/drug", title: "Drugs", emoji: "pill" },
   { href: "/tags", title: "Tags", emoji: "label" },
 ];
@@ -329,7 +330,7 @@ export const MORE_NAV_LINKS = [
 export const FOOTER_NAV_LINKS = [
   { href: "/blog", title: "Blog" },
   { href: "/tools", title: "Tools" },
-  { href: "/projects", title: "Projects" },
+  { href: "/courses", title: "Courses" },
   { href: "/tags", title: "Tags" },
   { href: "/feed.xml", title: "RSS Feed" },
 ];

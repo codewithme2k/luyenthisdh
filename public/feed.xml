@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+      <channel>
+        <title>Ykhoaso – stories, insights, and ideas</title>
+        <link>https://ykhoaso.site/blog</link>
+        <description>Y khoa số – nơi ghi lại hành trình chinh phục lập trình, chia sẻ kiến thức về Web Development và các công cụ hỗ trợ y khoa lâm sàng cho cộng đồng.</description>
+        <language>en-us</language>
+        <managingEditor>22thag6@gmail.com (Huu dev)</managingEditor>
+        <webMaster>22thag6@gmail.com (Huu dev)</webMaster>
+        <lastBuildDate>Wed, 08 Apr 2026 00:00:00 GMT</lastBuildDate>
+        <atom:link href="https://ykhoaso.site/feed.xml" rel="self" type="application/rss+xml"/>
+        
+    <item>
+      <guid>https://ykhoaso.site/blog/choc-hut-dich-mang-tim-cap-cuu</guid>
+      <title>Chọc hút dịch màng tim cấp cứu</title>
+      <link>https://ykhoaso.site/blog/choc-hut-dich-mang-tim-cap-cuu</link>
+      <description><![CDATA[Hướng dẫn kỹ thuật chọc hút dẫn lưu dịch màng ngoài tim cấp cứu, chẩn đoán ép tim cấp và các bước tiến hành thủ thuật theo đường Marfan.]]></description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>cardiology</category><category>icu</category><category>procedures</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/dot-quy-thieu-mau-nao-cuc-bo-cap-tinh</guid>
+      <title>Đột quỵ thiếu máu não cục bộ cấp tính</title>
+      <link>https://ykhoaso.site/blog/dot-quy-thieu-mau-nao-cuc-bo-cap-tinh</link>
+      <description><![CDATA[Đột quỵ thiếu máu não cục bộ cấp tính (acute ischemic stroke) hay còn gọi là nhồi máu não là tình trạng dòng máu đột ngột không lưu thông đến một khu vực của não làm mất chức năng thần kinh tương ứng.]]></description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>neurology</category><category>icu</category><category>emergency</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/suy-tim-mat-bu-cap-va-phu-phoi-cap-do-tim</guid>
+      <title>Suy tim mất bù cấp và phù phổi cấp do tim</title>
+      <link>https://ykhoaso.site/blog/suy-tim-mat-bu-cap-va-phu-phoi-cap-do-tim</link>
+      <description><![CDATA[Suy tim mất bù cấp là tình trạng xấu đi đột ngột của các triệu chứng suy tim và thường là nguyên nhân của phù phổi cấp do tim.]]></description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>cardiology</category><category>icu</category><category>emergency</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/xuat-huyet-trong-nao-ich</guid>
+      <title>Xuất huyết trong não(ICH)</title>
+      <link>https://ykhoaso.site/blog/xuat-huyet-trong-nao-ich</link>
+      <description><![CDATA[Xuất huyết trong não(ICH) là tình trạng tụ máu tập trung trong nhu mô não có khả năng lan rộng sang các khoang não lân cận.]]></description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>neurology</category><category>icu</category><category>emergency</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/tools/egfr-calculator</guid>
+      <title>Công cụ tính eGFR</title>
+      <link>https://ykhoaso.site/tools/egfr-calculator</link>
+      <description><![CDATA[Công cụ tính nhanh eGFR bằng công thức CKD-EPI 2021.]]></description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>nephrology</category><category>icu</category><category>calculator</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/chen-ong-nguc-dat-ong-dan-luu-mang-phoi</guid>
+      <title>Chèn ống ngực (đặt ống dẫn lưu màng phổi)</title>
+      <link>https://ykhoaso.site/blog/chen-ong-nguc-dat-ong-dan-luu-mang-phoi</link>
+      <description><![CDATA[Hướng dẫn kỹ thuật đặt ống dẫn lưu màng phổi (Thoracostomy), bao gồm chỉ định, vị trí an toàn, lựa chọn kích thước ống và các phương pháp tiến hành.]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>respiratory</category><category>icu</category><category>procedures</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/choc-dich-mang-phoi-thoracentesis</guid>
+      <title>Chọc dịch màng phổi</title>
+      <link>https://ykhoaso.site/blog/choc-dich-mang-phoi-thoracentesis</link>
+      <description><![CDATA[Chọc dịch màng phổi là thủ thuật dùng kim chọc qua khoang liên sườn vào khoang màng phổi để hút dịch trong khoang màng phổi.]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>respiratory</category><category>icu</category><category>procedures</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/con-hen-phe-quan-cap</guid>
+      <title>Cơn hen phế quản cấp</title>
+      <link>https://ykhoaso.site/blog/con-hen-phe-quan-cap</link>
+      <description><![CDATA[Hen phế quản (HPQ) là một bệnh có đặc điểm là viêm mạn tính niêm mạc phế quản làm tăng phản ứng của phế quản thường xuyên với nhiều tác nhân kích thích.]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>respiratory</category><category>icu</category><category>emergency</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/dot-cap-copd</guid>
+      <title>Đợt cấp COPD (COPD Exacerbation)</title>
+      <link>https://ykhoaso.site/blog/dot-cap-copd</link>
+      <description><![CDATA[Hướng dẫn chi tiết về chẩn đoán, phân loại mức độ nặng và phác đồ điều trị đợt cấp bệnh phổi tắc nghẽn mạn tính theo GOLD và Bộ Y tế.]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>respiratory</category><category>icu</category><category>copd</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/dot-quy-xuat-huyet-nao-hemorrhagic-stroke</guid>
+      <title>Đột quỵ xuất huyết não (Hemorrhagic Stroke)</title>
+      <link>https://ykhoaso.site/blog/dot-quy-xuat-huyet-nao-hemorrhagic-stroke</link>
+      <description><![CDATA[Hướng dẫn chi tiết về chẩn đoán, phân loại và xử trí đột quỵ xuất huyết não nguyên phát và thứ phát theo phác đồ Bộ Y tế.]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>neurology</category><category>icu</category><category>stroke</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/hoi-chung-dong-mach-vanh-cap-khong-st-chenh-len</guid>
+      <title>Hội chứng động mạch vành cấp không ST chênh lên</title>
+      <link>https://ykhoaso.site/blog/hoi-chung-dong-mach-vanh-cap-khong-st-chenh-len</link>
+      <description><![CDATA[Hội chứng động mạch vành cấp không có ST chênh lên bao gồm hai bệnh cảnh lâm sàng: NMCT không có ST chênh lên (NSTEMI) và đau thắt ngực không ổn định (ĐNKÔĐ).]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>cardiology</category><category>icu</category><category>emergency</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/hoi-chung-vanh-cap</guid>
+      <title>Hội chứng vành cấp</title>
+      <link>https://ykhoaso.site/blog/hoi-chung-vanh-cap</link>
+      <description><![CDATA[Thuật ngữ Hội chứng động mạch vành cấp hay còn gọi tắt là Hội chứng mạch vành cấp (ACS) bao gồm STEMI và ACS-NSTEMI.]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>cardiology</category><category>icu</category><category>emergency</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/nhoi-mau-co-tim-cap-co-st-chenh-len</guid>
+      <title>Nhồi máu cơ tim cấp có ST chênh lên</title>
+      <link>https://ykhoaso.site/blog/nhoi-mau-co-tim-cap-co-st-chenh-len</link>
+      <description><![CDATA[Nhồi máu cơ tim cấp có ST chênh lên (STEMI) là một bệnh cảnh cấp cứu cần được chẩn đoán sớm và điều trị tích cực, kịp thời.]]></description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>cardiology</category><category>icu</category><category>emergency</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/tools/sofa-2-score</guid>
+      <title>Thang điểm SOFA-2</title>
+      <link>https://ykhoaso.site/tools/sofa-2-score</link>
+      <description><![CDATA[SOFA-2 là bản cập nhật toàn cầu phản ánh thực hành hồi sức hiện đại, tích hợp các yếu tố mới như HFNC, ECMO và liều vận mạch chính xác.]]></description>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>medical</category><category>icu</category><category>critical-care</category><category>scoring-systems</category>
+    </item>
+  
+    <item>
+      <guid>https://ykhoaso.site/blog/better-responsive-image-with-srcset-and-sizes-attributes</guid>
+      <title>Better responsive images with srcset and sizes attributes</title>
+      <link>https://ykhoaso.site/blog/better-responsive-image-with-srcset-and-sizes-attributes</link>
+      <description><![CDATA[A guide to using the srcset and sizes attributes to create responsive images]]></description>
+      <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
+      <author>22thag6@gmail.com (Huu dev)</author>
+      <category>responsive</category><category>image</category><category>srcset</category><category>sizes</category><category>html</category><category>attributes</category>
+    </item>
+  
+      </channel>
+    </rss>
+  

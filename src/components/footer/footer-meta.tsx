@@ -9,7 +9,7 @@ import { Clock, Github, MapPin, Star } from "lucide-react";
 import Link from "next/link";
 import useSWR from "swr";
 
-const TIME_IS = "https://time.is/Hanoi";
+const TIME_IS = "https://time.is/Ho_Chi_Minh";
 const MY_TIMEZONE = "Asia/Ho_Chi_Minh";
 const MY_TIMEZONE_OFFSET = 7 * -60; // UTC+7
 

@@ -1,12 +1,12 @@
 export const SITE_METADATA = {
-  title: `HuuDoan – stories, insights, and ideas`,
-  author: "Huu Doan",
-  headerTitle: `HuuDoan's blog`,
+  title: `Ykhoaso – stories, insights, and ideas`,
+  author: "Huu dev",
+  headerTitle: `Ykhoaso's blog`,
   description:
-    "Không gian số của Bác sĩ Hữu – nơi ghi lại hành trình chinh phục lập trình, chia sẻ kiến thức về Web Development và các công cụ hỗ trợ y khoa lâm sàng cho cộng đồng.",
+    "Y khoa số – nơi ghi lại hành trình chinh phục lập trình, chia sẻ kiến thức về Web Development và các công cụ hỗ trợ y khoa lâm sàng cho cộng đồng.",
   language: "en-us",
   theme: "system",
-  siteUrl: "https://luyenthisdh.vercel.app",
+  siteUrl: "https://ykhoaso.site",
   siteRepo: "https://github.com/codewithme2k/luyenthisdh",
   siteLogo: `${process.env.BASE_PATH || ""}/static/images/logo.jpg`,
   socialBanner: `${process.env.BASE_PATH || ""}/static/images/twitter-card.jpeg`,
@@ -56,8 +56,8 @@ export const SITE_METADATA = {
     },
   },
   support: {
-    buyMeACoffee: "https://www.buymeacoffee.com/leohuynh.dev",
-    paypal: "https://paypal.me/hta218?country.x=VN&locale.x=en_US",
-    kofi: "https://ko-fi.com/hta218",
+    buyMeACoffee: "https://www.buymeacoffee.com/#",
+    paypal: "https://paypal.me/#",
+    kofi: "https://ko-fi.com/#",
   },
 };
