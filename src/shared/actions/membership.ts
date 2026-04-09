@@ -19,11 +19,13 @@ function getVipPrice(plan: EVipPlan): number {
       return 0;
   }
 }
+
 function generateOrderCode(): string {
-  const timestamp = Date.now().toString().slice(-6); // lấy 6 số cuối timestamp
-  const randomPart = Math.floor(1000 + Math.random() * 9000); // 4 chữ số ngẫu nhiên
+  const timestamp = Date.now().toString().slice(-6);
+  const randomPart = Math.floor(1000 + Math.random() * 9000);
   return `DH${timestamp}${randomPart}`;
 }
+
 export async function memberShip(planId: string) {
   const user = await currentUser();
 
@@ -32,7 +34,6 @@ export async function memberShip(planId: string) {
   }
 
   try {
-    // 1. Kiểm tra xem có order PENDING không
     const pendingOrder = await db.order.findFirst({
       where: {
         userId: user.id,
@@ -44,11 +45,10 @@ export async function memberShip(planId: string) {
       return {
         success: false,
         message:
-          "Bạn vẫn có đơn hàng chưa thanh toán. Vui lòng hoàn tất thanh toán trước khi mua gói mới.",
+          "Bạn vẫn có đơn hàng chưa thanh toán. Vui lòng hoàn tất đơn hàng cũ trước.",
       };
     }
 
-    // 2. Tính giá và thời hạn gói
     const now = new Date();
     let endDate: Date | null = null;
 
@@ -72,83 +72,66 @@ export async function memberShip(planId: string) {
         return { success: false, message: "Gói không hợp lệ" };
     }
 
-    // 3. Kiểm tra membership hiện tại (không update ngay)
-    const existingMembership = await db.membership.findUnique({
-      where: { userId: user.id },
+    const result = await db.$transaction(async (tx) => {
+      let membership = await tx.membership.findUnique({
+        where: { userId: user.id },
+      });
+
+      if (membership) {
+        // Nếu đã có membership, cập nhật thông tin gói mới nhưng để isActive = false
+        // Đợi đến khi thanh toán thành công ở hàm changeOrderStatus mới bật true
+        membership = await tx.membership.update({
+          where: { id: membership.id },
+          data: {
+            plan: planId as EVipPlan,
+            endDate: endDate,
+            isActive: false,
+          },
+        });
+      } else {
+        // Nếu chưa từng có, tạo mới hoàn toàn
+        membership = await tx.membership.create({
+          data: {
+            userId: user.id,
+            plan: planId as EVipPlan,
+            startDate: now,
+            endDate: endDate,
+            isActive: false,
+          },
+        });
+      }
+
+      const price = getVipPrice(planId as EVipPlan);
+      const order = await tx.order.create({
+        data: {
+          userId: user.id,
+          type: EOrderType.VIP,
+          membershipId: membership.id,
+          price,
+          status: EOrderStatus.PENDING,
+          code: generateOrderCode(),
+        },
+      });
+
+      return { order, price };
     });
 
-    if (existingMembership && existingMembership.plan === planId) {
-      return {
-        success: false,
-        message: "Bạn đã đăng ký gói này rồi.",
-      };
-    }
-
-    // 4. Tạo order mới
-    const price = getVipPrice(planId as EVipPlan);
-    const order = await db.order.create({
-      data: {
-        userId: user.id,
-        type: EOrderType.VIP,
-        membershipId: existingMembership?.id || undefined,
-        price,
-        status: EOrderStatus.PENDING,
-        code: generateOrderCode(),
-      },
-    });
-
-    // 5. Gửi thông báo Telegram
+    // 4. Gửi thông báo Telegram
     await sendTelegramMessage(
-      `📚 *Người dùng:* ${escape(user.name || user.email || "")}\n` +
+      `📚 *Người dùng:* ${user.name || user.email}\n` +
         `🎓 *Gói VIP:* ${planId}\n` +
-        `🧾 *Mã đơn hàng:* \`${order.code}\`\n` +
-        `💰 *Giá thanh toán:* *${price.toLocaleString()}đ*\n` +
+        `🧾 *Mã đơn hàng:* \`${result.order.code}\`\n` +
+        `💰 *Giá:* *${result.price.toLocaleString()}đ*\n` +
         `📌 *Trạng thái:* 🕓 *Chờ thanh toán*`,
     );
 
     return {
       success: true,
-      message: "Tạo đơn hàng thành công. Vui lòng thanh toán để kích hoạt VIP.",
-      data: {
-        order: order.id,
-      },
+      message: "Tạo đơn hàng thành công.",
+      data: { order: result.order.id },
     };
   } catch (error) {
-    console.error("Lỗi khi tạo membership order:", error);
-    return {
-      success: false,
-      message: "Đã xảy ra lỗi khi tạo đơn hàng VIP",
-    };
+    console.error("Lỗi tạo đơn hàng:", error);
+    return { success: false, message: "Đã xảy ra lỗi hệ thống." };
   }
-}
-export async function CheckMemberShip() {
-  const user = await currentUser();
-  if (!user) {
-    return {
-      success: false,
-      message: "Unauthorized",
-      plan: null,
-      isExpired: null,
-    };
-  }
-
-  const membership = await db.membership.findUnique({
-    where: { userId: user.id, isActive: true },
-  });
-
-  if (!membership) {
-    return {
-      success: false,
-      plan: null,
-      isExpired: null,
-    };
-  }
-
-  const now = new Date();
-  const isExpired = membership.endDate !== null && membership.endDate < now;
-  return {
-    success: true,
-    plan: membership.plan,
-    isExpired,
-  };
 }

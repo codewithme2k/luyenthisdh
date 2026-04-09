@@ -25,6 +25,7 @@ export function UserMenu({ session }: { session: any }) {
   useEffect(() => {
     const fetchMembership = async () => {
       const res = await CheckMemberShip();
+      console.log(res);
       if (res.success && res.plan && !res.isExpired) {
         setPlan(res.plan);
       }
