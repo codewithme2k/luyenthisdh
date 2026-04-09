@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "prisma generate && postbuild && contentlayer2 build && next build --webpack",
+    "build": "prisma generate && npm run postbuild && contentlayer2 build && next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "postbuild": "tsx ./src/scripts/post-build.ts",
