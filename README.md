@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Luyện Thi Sau Đại Học (Luyenthisdh)
 
-## Getting Started
+Nền tảng học tập và ôn thi chuyên sâu dành cho học viên Sau đại học khối ngành Y Dược.
 
-First, run the development server:
+## 🚀 Giới thiệu dự án
 
+Dự án **Luyện Thi Sau Đại Học** là một ứng dụng web hiện đại được thiết kế để cung cấp tài liệu, công cụ và lộ trình ôn tập tối ưu cho các kỳ thi Chuyên khoa I, Chuyên khoa II, Thạc sĩ và Nội trú.
+
+## ✨ Tính năng chính
+
+- 📚 **Hệ thống Blog/Bài viết**: Kho tin tức, tài liệu và kinh nghiệm ôn thi được quản lý qua MDX (Contentlayer 2).
+- 🛠️ **Công cụ tương tác**: Các công cụ hỗ trợ tính toán lâm sàng và học tập chuyên biệt.
+- 🔐 **Hệ thống thành viên**: Quản lý tài khoản, nâng cấp VIP để truy cập nội dung độc quyền.
+- 💳 **Thanh toán trực tuyến**: Quy trình đăng ký và nâng cấp tài khoản tự động qua hệ thống Checkout.
+- 📊 **Bảng điều khiển (Dashboard)**:
+  - **Admin**: Quản lý nội dung, người dùng và hệ thống.
+  - **User**: Theo dõi tiến độ học tập và thông tin cá nhân.
+- 🔍 **Tìm kiếm thông minh**: Tìm kiếm nội dung nhanh chóng với Kbar.
+- 🌓 **Chế độ giao diện**: Hỗ trợ Dark mode và Light mode linh hoạt.
+
+## 🛠️ Công nghệ sử dụng
+
+- **Frontend**: [Next.js 16](https://nextjs.org/) (App Router), [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/).
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) (Next-gen), [Shadcn UI](https://ui.shadcn.com/), [Radix UI](https://www.radix-ui.com/).
+- **Quản lý nội dung**: [Contentlayer 2](https://contentlayer.dev/) (Quản lý file MDX).
+- **Cơ sở dữ liệu**: [Prisma](https://www.prisma.io/) và [PostgreSQL](https://www.postgresql.org/).
+- **Xác thực**: [Auth.js v5](https://authjs.dev/) (NextAuth).
+- **Tiện ích**:
+  - `rehype`/`remark` plugins (hỗ trợ Math - KaTeX, Citation, GFM).
+  - `UploadThing` (Xử lý tải lên tệp tin).
+  - `SWR` (Data fetching và caching).
+  - `Zod` & `React Hook Form` (Quản lý form và validation).
+
+## 📂 Cấu trúc thư mục
+
+- `src/app/(client)`: Các trang công khai dành cho người dùng (Blog, Tools, About...).
+- `src/app/(dashboard)`: Giao diện quản trị (Admin) và cá nhân (User).
+- `src/components`: Hệ thống thành phần (Components) tái sử dụng, bao gồm cả UI nền tảng.
+- `data`: Lưu trữ các tệp tin MDX cho bài viết và tác giả.
+- `prisma`: Schema và migrations cho cơ sở dữ liệu.
+
+## 🛠️ Hướng dẫn cài đặt
+
+### 1. Yêu cầu hệ thống
+- Node.js 18.x trở lên.
+- PostgreSQL database.
+
+### 2. Cài đặt các gói phụ thuộc
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Cấu hình biến môi trường
+Sao chép tệp `.env.example` thành `.env` và điền đầy đủ các thông tin cần thiết:
+```bash
+cp .env.example .env
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Khởi tạo Cơ sở dữ liệu
+```bash
+npx prisma generate
+npx prisma db push
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. Chạy dự án ở chế độ phát triển
+```bash
+npm run dev
+```
+Truy cập [http://localhost:3000](http://localhost:3000) để xem kết quả.
 
-## Learn More
+## 📄 Giấy phép
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Dự án được phát triển và quản lý bởi Luyenthisdh Team.
