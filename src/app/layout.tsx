@@ -16,6 +16,7 @@ import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import { KBarSearchProvider } from "@/components/search/kbar-provider";
 import { SITE_METADATA } from "@/shared/site-metadata";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const FONT_PLAYPEN_SANS = Playpen_Sans({
   subsets: ["latin"],
@@ -110,7 +111,7 @@ export default async function RootLayout({
               richColors={true}
             />
             <KBarSearchProvider configs={SITE_METADATA.search.kbarConfigs}>
-              {children}
+              <TooltipProvider>{children}</TooltipProvider>
             </KBarSearchProvider>
           </ThemeProvider>
         </SessionProvider>
