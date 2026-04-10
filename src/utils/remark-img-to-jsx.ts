@@ -1,55 +1,67 @@
 import { visit } from "unist-util-visit";
-import { Node, Parent } from "unist";
-import fs from "fs";
-import path from "path";
-import sizeOf from "image-size";
+import { Node, Parent, Literal } from "unist";
+import fs from "node:fs";
+import path from "node:path";
+import { sync as sizeOf } from "probe-image-size";
 
-// Định nghĩa interface cho Image Node để tránh lỗi "property does not exist"
-interface ImageNode extends Node {
+export type ImageNode = Node & {
   url: string;
-  alt?: string;
-  name?: string;
-  attributes?: any[];
-  type: "image" | "mdxJsxFlowElement";
-}
+  alt: string;
+  name: string;
+  attributes: (Literal & { name: string; value: any })[];
+};
 
 export default function remarkImgToJsx() {
   return (tree: Node) => {
-    // Sử dụng 'image' để lọc đúng các node là hình ảnh
-    visit(tree, "image", (node: ImageNode) => {
-      // Xác định đường dẫn vật lý của ảnh (thường nằm trong thư mục public)
-      const imagePath = path.join(process.cwd(), "public", node.url);
+    visit(
+      tree,
+      (node: Node): node is Parent =>
+        node.type === "paragraph" &&
+        "children" in node &&
+        (node as Parent).children.some((n) => n.type === "image"),
+      (node: Parent) => {
+        const imageNodeIndex = node.children.findIndex(
+          (n) => n.type === "image",
+        );
+        const imageNode = node.children[imageNodeIndex] as ImageNode;
 
-      // 1. Kiểm tra file có tồn tại không để tránh crash build
-      if (fs.existsSync(imagePath)) {
-        try {
-          // 2. Lấy kích thước ảnh
-          const dimensions = sizeOf(imagePath as any);
+        const imagePath = path.join(process.cwd(), "public", imageNode.url);
 
-          // 3. Kiểm tra dimensions không null (Sửa lỗi "possibly null")
-          if (dimensions && dimensions.width && dimensions.height) {
-            // Chuyển đổi node image markdown thành mdxJsxFlowElement (để dùng với Next Image)
-            node.type = "mdxJsxFlowElement";
-            node.name = "img";
-            node.attributes = [
-              { type: "mdxJsxAttribute", name: "alt", value: node.alt || "" },
-              { type: "mdxJsxAttribute", name: "src", value: node.url },
-              {
-                type: "mdxJsxAttribute",
-                name: "width",
-                value: dimensions.width,
-              },
-              {
-                type: "mdxJsxAttribute",
-                name: "height",
-                value: dimensions.height,
-              },
-            ];
+        imageNode.type = "mdxJsxFlowElement";
+        imageNode.name = "Image";
+        imageNode.attributes = [
+          { type: "mdxJsxAttribute", name: "alt", value: imageNode.alt || "" },
+          { type: "mdxJsxAttribute", name: "src", value: imageNode.url },
+        ];
+
+        if (fs.existsSync(imagePath)) {
+          try {
+            const dimensions = sizeOf(fs.readFileSync(imagePath));
+            if (dimensions && dimensions.width && dimensions.height) {
+              imageNode.attributes.push(
+                {
+                  type: "mdxJsxAttribute",
+                  name: "width",
+                  value: dimensions.width,
+                },
+                {
+                  type: "mdxJsxAttribute",
+                  name: "height",
+                  value: dimensions.height,
+                },
+              );
+            }
+          } catch (error) {
+            console.error(
+              `Error processing image size for: ${imagePath}`,
+              error,
+            );
           }
-        } catch (error) {
-          console.error(`Error processing image size for: ${imagePath}`, error);
         }
-      }
-    });
+
+        node.type = "div";
+        node.children[imageNodeIndex] = imageNode;
+      },
+    );
   };
 }

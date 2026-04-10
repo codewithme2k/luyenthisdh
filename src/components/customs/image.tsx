@@ -39,18 +39,20 @@ export function Image(props: ImageProps) {
     <div
       className={clsx(
         "image-container relative overflow-hidden",
-        !loaded && "animate-pulse [animation-duration:4s]",
+        !loaded && "animate-pulse animation-duration-[4s]",
         className,
       )}
     >
       <NextImage
         className={clsx(
-          "transition-all duration-500 [transition-timing-function:cubic-bezier(.4,0,.2,1)]",
+          "transition-all duration-500 ease-in-out",
           "h-full max-h-full w-full object-center",
           loaded ? "blur-0" : "blur-xl",
         )}
         src={src}
         alt={alt}
+        width={1000}
+        height={600}
         style={{ objectFit: "cover", ...style }}
         loading={loading}
         priority={loading === "eager"}

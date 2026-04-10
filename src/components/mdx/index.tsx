@@ -8,14 +8,17 @@ import { TableWrapper } from "./table-wrapper";
 import Link from "next/link";
 import SOFA2Calculator from "@/components/tools/SOFA2Calculator";
 
+const ZoomedImage = ({ alt, ...rest }: ImageProps) => {
+  return (
+    <Zoom>
+      <Image alt={alt} {...rest} />
+    </Zoom>
+  );
+};
+
 export const MDX_COMPONENTS: MDXComponents = {
-  Image: ({ alt, ...rest }: ImageProps) => {
-    return (
-      <Zoom>
-        <Image alt={alt} {...rest} />
-      </Zoom>
-    );
-  },
+  Image: ZoomedImage,
+  img: ZoomedImage,
   Twemoji,
   CodeTitle,
   a: Link,
