@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Author } from "contentlayer/generated";
 import type { ReactNode } from "react";
 
@@ -13,7 +12,7 @@ interface Props {
   content: Omit<Author, "_id" | "_raw" | "body">;
 }
 
-export function AuthorLayout({ children }: Props) {
+export function AuthorLayout({ children, content }: Props) {
   return (
     <Container className="pt-4 lg:pt-12">
       <div className="py-8 md:grid md:grid-cols-3 gap-12">
@@ -25,7 +24,8 @@ export function AuthorLayout({ children }: Props) {
         {/* Cột phải: Nội dung chính */}
         <div className="md:col-span-2 md:pl-4 xl:pl-8">
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <section>
+            {children && <div className="mt-12">{children}</div>}
+            {/* <section>
               <h2 className="mt-0 flex items-center gap-3">
                 Xin chào <Twemoji emoji="waving-hand" />
               </h2>
@@ -34,7 +34,7 @@ export function AuthorLayout({ children }: Props) {
                 kiến thức, trải nghiệm và những điều thú vị mà mình học được
                 trong hành trình làm nghề.
               </p>
-            </section>
+            </section> */}
 
             <section className="mt-12">
               <h2>Ủng hộ (Donate)</h2>
@@ -93,8 +93,6 @@ export function AuthorLayout({ children }: Props) {
                 <SocialAccounts />
               </div>
             </section>
-
-            {children && <div className="mt-12">{children}</div>}
           </div>
         </div>
       </div>
