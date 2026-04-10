@@ -4,10 +4,10 @@ import { clsx } from "clsx";
 import type { ImageProps as NextImageProps } from "next/image";
 import NextImage from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import ReactMediumImageZoom, {
-  type UncontrolledProps,
-} from "react-medium-image-zoom";
+import { lazy, Suspense, useEffect, useState } from "react";
+import type { UncontrolledProps } from "react-medium-image-zoom";
+
+const ReactMediumImageZoom = lazy(() => import("react-medium-image-zoom"));
 
 const loadedImages: string[] = [];
 
@@ -68,18 +68,30 @@ interface ZoomProps extends UncontrolledProps {
 
 export function Zoom(props: ZoomProps) {
   const { children, classDialog, ...rest } = props;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <>{children}</>;
+  }
+
   return (
-    <ReactMediumImageZoom
-      zoomMargin={20}
-      classDialog={clsx([
-        "[&_[data-rmiz-modal-img]]:rounded-lg",
-        "[&_[data-rmiz-btn-unzoom]]:hidden",
-        '[&_[data-rmiz-modal-overlay="visible"]]:bg-black/80',
-        classDialog,
-      ])}
-      {...rest}
-    >
-      {children}
-    </ReactMediumImageZoom>
+    <Suspense fallback={<>{children}</>}>
+      <ReactMediumImageZoom
+        zoomMargin={20}
+        classDialog={clsx([
+          "[&_[data-rmiz-modal-img]]:rounded-lg",
+          "[&_[data-rmiz-btn-unzoom]]:hidden",
+          '[&_[data-rmiz-modal-overlay="visible"]]:bg-black/80',
+          classDialog,
+        ])}
+        {...rest}
+      >
+        {children}
+      </ReactMediumImageZoom>
+    </Suspense>
   );
 }
