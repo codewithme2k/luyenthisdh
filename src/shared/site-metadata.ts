@@ -48,6 +48,9 @@ export const SITE_METADATA = {
       themeURL: "",
       lang: "en",
     },
+    facebookConfigs: {
+      appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID!,
+    },
   },
   search: {
     kbarConfigs: {
