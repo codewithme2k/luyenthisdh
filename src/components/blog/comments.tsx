@@ -1,38 +1,71 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { SITE_METADATA } from "@/shared/site-metadata";
+import type { BooleanString, InputPosition, Mapping } from "@giscus/react";
+import GiscusComponent from "@giscus/react";
+import { useTheme } from "next-themes";
 
-declare global {
-  interface Window {
-    FB?: {
-      XFBML: {
-        parse: () => void;
-      };
-    };
-  }
+interface GiscusConfigs {
+  themeURL: string;
+  theme: string;
+  darkTheme: string;
+  mapping: Mapping;
+  repo: `${string}/${string}`;
+  repositoryId: string;
+  category: string;
+  categoryId: string;
+  reactions: BooleanString;
+  metadata: BooleanString;
+  inputPosition: InputPosition;
+  lang: string;
 }
 
-export function Comments({ url }: { url: string }) {
-  const [mounted, setMounted] = useState(false);
+interface CommentsProps {
+  configs?: Partial<GiscusConfigs>;
+  className?: string;
+}
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-    if (window.FB) {
-      window.FB.XFBML.parse();
-    }
-  }, [url]);
+export function Comments({ configs, className }: CommentsProps) {
+  const defaultConfigs = SITE_METADATA.comments.giscusConfigs as GiscusConfigs;
+  const {
+    themeURL,
+    theme,
+    darkTheme,
+    repo,
+    repositoryId,
+    category,
+    categoryId,
+    reactions,
+    metadata,
+    inputPosition,
+    lang,
+    mapping,
+  } = { ...defaultConfigs, ...configs };
 
-  // Nếu chưa mount xong (đang ở server), không render div của Facebook
-  if (!mounted)
-    return <div className="animate-pulse bg-gray-100 h-32 w-full rounded" />;
+  const { theme: siteTheme, resolvedTheme } = useTheme();
+  const commentsTheme =
+    themeURL === ""
+      ? siteTheme === "dark" || resolvedTheme === "dark"
+        ? darkTheme
+        : theme
+      : themeURL;
 
   return (
-    <div
-      className="fb-comments"
-      data-href={url}
-      data-width="100%"
-      data-numposts="5"
-    ></div>
+    <div id="comment" className={className}>
+      <GiscusComponent
+        id="comments-container"
+        repo={repo}
+        repoId={repositoryId}
+        category={category}
+        categoryId={categoryId}
+        mapping={mapping}
+        reactionsEnabled={reactions}
+        emitMetadata={metadata}
+        inputPosition={inputPosition}
+        theme={commentsTheme}
+        lang={lang}
+        loading="lazy"
+      />
+    </div>
   );
 }

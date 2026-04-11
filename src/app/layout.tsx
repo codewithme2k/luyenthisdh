@@ -137,12 +137,6 @@ export default async function RootLayout({
         type="application/rss+xml"
         href={`${basePath}/feed.xml`}
       />
-      <script
-        async
-        defer
-        crossOrigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v25.0&appId=2303300660079817"
-      ></script>
       <body
         className={`${FONT_PLAYPEN_SANS.variable} ${FONT_NUNITO.variable} ${FONT_GEIST.variable} ${FONT_JETBRAINS_MONO.variable} antialiased`}
       >

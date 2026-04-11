@@ -114,7 +114,7 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
             prev={prev}
             prevLabel="Previous post"
           />
-          <Comments url={postUrl} />
+          <Comments configs={{ reactions: "0" }} />
         </div>
       </article>
     </Container>
