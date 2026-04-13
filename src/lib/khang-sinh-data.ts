@@ -1,11 +1,11 @@
-export type ChapterType = 'images' | 'pdf';
+export type ChapterType = "images" | "pdf";
 
 export interface KhangSinhChapter {
   id: string;
   label: string;
   emoji: string;
   folder: string; // Folder name inside /public/khang-sinh/
-  count: number;  // Number of images
+  count: number; // Number of images
   description?: string;
   type: ChapterType;
   pdfPath?: string;
@@ -20,7 +20,8 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     count: 0,
     type: "pdf",
     pdfPath: "/khang-sinh/chuong01.pdf",
-    description: "Nguyên tắc phân loại vi khuẩn, nấm và các nhóm thuốc điều trị tương ứng."
+    description:
+      "Nguyên tắc phân loại vi khuẩn, nấm và các nhóm thuốc điều trị tương ứng.",
   },
   {
     id: "chuong-2",
@@ -30,7 +31,8 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     count: 0,
     type: "pdf",
     pdfPath: "/khang-sinh/chuong02.pdf",
-    description: "Hướng dẫn lựa chọn, liều lượng và các lưu ý lâm sàng quan trọng."
+    description:
+      "Hướng dẫn lựa chọn, liều lượng và các lưu ý lâm sàng quan trọng.",
   },
   {
     id: "chuong-3",
@@ -40,7 +42,8 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     count: 0,
     type: "pdf",
     pdfPath: "/khang-sinh/chuong03.pdf",
-    description: "Tối ưu hóa liều kháng sinh dựa trên đặc tính Dược động học và Dược lực học."
+    description:
+      "Tối ưu hóa liều kháng sinh dựa trên đặc tính Dược động học và Dược lực học.",
   },
 
   {
@@ -50,7 +53,7 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     folder: "Nhiễm khuẩn huyết",
     count: 8,
     type: "images",
-    description: "Phác đồ điều trị nhiễm khuẩn huyết và sốc nhiễm khuẩn."
+    description: "Phác đồ điều trị nhiễm khuẩn huyết và sốc nhiễm khuẩn.",
   },
   {
     id: "ho-hap",
@@ -59,7 +62,7 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     folder: "Hô hấp",
     count: 9,
     type: "images",
-    description: "Viêm phổi cộng đồng, viêm phổi bệnh viện."
+    description: "Viêm phổi cộng đồng, viêm phổi bệnh viện.",
   },
   {
     id: "tieu-hoa",
@@ -121,7 +124,7 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     id: "ban-chan-dtd",
     label: "NK Bàn chân ĐTĐ",
     emoji: "🦶",
-    folder: "NK trên Baàn chaân ĐTĐ",
+    folder: "NK trên Bàn chaân ĐTĐ",
     count: 2,
     type: "images",
   },
@@ -164,6 +167,5 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     folder: "Viêm gan siêu vi",
     count: 6,
     type: "images",
-  }
-
+  },
 ];
