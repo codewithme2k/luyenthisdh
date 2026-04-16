@@ -124,7 +124,7 @@ export const KHANG_SINH_DATA: KhangSinhChapter[] = [
     id: "ban-chan-dtd",
     label: "NK Bàn chân ĐTĐ",
     emoji: "🦶",
-    folder: "NK trên Bàn chaân ĐTĐ",
+    folder: "NK trên Bàn chân ĐTĐ",
     count: 2,
     type: "images",
   },

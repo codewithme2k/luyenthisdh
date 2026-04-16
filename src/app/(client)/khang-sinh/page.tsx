@@ -1,5 +1,5 @@
 import React from "react";
-import { KhangSinhViewer } from "@/components/customs/khang-sinh-viewer";
+import { KhangSinhViewer } from "@/app/(client)/(WithHeader)/drug/khang-sinh-viewer";
 import { Metadata } from "next";
 import { CheckMemberShip } from "@/shared/actions/membership";
 import { Header } from "@/components/header";

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { KHANG_SINH_DATA } from "@/lib/khang-sinh-data";
+import { KHANG_SINH_DATA } from "@/app/(client)/(WithHeader)/drug/khang-sinh-data";
 import { ChevronRight, ChevronLeft, Search, Lock, Menu, X } from "lucide-react";
 import Zoom from "react-medium-image-zoom";
 
