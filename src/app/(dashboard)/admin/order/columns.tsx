@@ -15,11 +15,15 @@ import { format } from "date-fns";
 import { OrderStatus } from "@/shared/constants";
 import { StatusSwitch } from "@/components/customs/CustomSwitch";
 import { changeOrderStatus } from "@/shared/actions/order.action";
-import { Membership, Order, User } from "@/generated/prisma";
+import { EVipPlan, Order } from "@/generated/prisma";
 export const columns: ColumnDef<
   Order & {
-    Membership: Membership | null;
-    user: User;
+    Membership: { plan: EVipPlan; isActive: boolean } | null;
+    user: {
+      id: string | null;
+      email: string | null;
+      name: string | null;
+    };
   }
 >[] = [
   {
@@ -48,7 +52,7 @@ export const columns: ColumnDef<
       </Button>
     ),
     cell: ({ row }) => {
-      const order = row.original.user.name;
+      const order = row.original.user?.name;
       return <div className=" whitespace-pre-wrap break-words">{order}</div>;
     },
   },
@@ -66,7 +70,7 @@ export const columns: ColumnDef<
     ),
     cell: ({ row }) => {
       const order = row.original.Membership?.plan;
-  
+
       return <div className=" whitespace-pre-wrap break-words">{order}</div>;
     },
   },
