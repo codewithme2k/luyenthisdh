@@ -15,11 +15,12 @@ import { EVipPlan, User } from "@/generated/prisma";
 import { PlanStatus } from "@/shared/constants";
 import { cn } from "@/lib/utils";
 
-export const columns: ColumnDef<
-  User & {
-    membership: { plan: EVipPlan; endDate: Date | null }[];
-  }
->[] = [
+// 1. Dùng Omit để ghi đè hoàn toàn type membership, tránh xung đột với type User gốc
+export type UserTableType = Omit<User, "membership"> & {
+  membership: { plan: EVipPlan; endDate: Date | null } | null;
+};
+
+export const columns: ColumnDef<UserTableType>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => {
@@ -68,12 +69,9 @@ export const columns: ColumnDef<
     accessorKey: "membership",
     header: "Gói VIP",
     cell: ({ row }) => {
-      const rawMembership = row.original?.membership;
-      const memberships = Array.isArray(rawMembership)
-        ? rawMembership
-        : rawMembership
-          ? [rawMembership]
-          : [];
+      const rawMembership = row.original.membership;
+      const memberships = rawMembership ? [rawMembership] : [];
+
       if (memberships.length === 0) {
         return (
           <span className="px-2 py-1 text-sm font-medium rounded text-muted-foreground bg-secondary/30">
@@ -117,7 +115,6 @@ export const columns: ColumnDef<
       return "No Courses";
     },
   },
-
   {
     id: "actions",
     cell: ({ row }) => {
@@ -142,7 +139,7 @@ export const columns: ColumnDef<
               Copy payment ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem asChild>
               <Link href={`/admin/user/edit/${user.id}`}>Edit Thành viên</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
