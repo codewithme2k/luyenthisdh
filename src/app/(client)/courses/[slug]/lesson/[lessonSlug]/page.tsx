@@ -19,7 +19,11 @@ export default async function LessonPage({
           course: {
             include: {
               Lectures: {
-                include: { Lessons: true },
+                include: { Lessons: {
+            orderBy: [{ order: "asc" }, { createdAt: "asc" }],
+          } },
+                
+                
               },
             },
           },

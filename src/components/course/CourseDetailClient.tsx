@@ -40,7 +40,7 @@ export default function CourseDetailClient({ course, isVipServer }: Props) {
 
   const handleLessonClick = (lesson: Lesson) => {
     if (lesson.isFree || isVipServer) {
-      window.open(`/course/${course.slug}/lesson/${lesson.slug}`, "_blank");
+      window.open(`/courses/${course.slug}/lesson/${lesson.slug}`, "_blank");
     } else {
       toast.error("Nội dung giới hạn", {
         description: "Vui lòng nâng cấp VIP để xem toàn bộ bài học này.",

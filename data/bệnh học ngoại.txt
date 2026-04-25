@@ -1,0 +1,162 @@
+
+[{
+  "title": "Chương trình đào tạo Ngoại khoa",
+  "lessons": [
+    {
+      "title": "KỸ NĂNG TRÌNH BỆNH",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1nsy4yCo35QQrDQ0i7i8XUleAfARFeyja",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1nsy4yCo35QQrDQ0i7i8XUleAfARFeyja/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "CT - MRI Ngực - Bụng - Chậu",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1Wtuz9LtyxuUReVaXzH65enWnKLZJaIqS",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1Wtuz9LtyxuUReVaXzH65enWnKLZJaIqS/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "TỔNG QUAN Y VĂN THỦNG Ổ LOÉT DẠ DÀY TÁ TRÀNG",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1yvBmmIOeRXJ2QBykKqcnjKsL-0_FP-OK",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1yvBmmIOeRXJ2QBykKqcnjKsL-0_FP-OK/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "9. SỰ LÀNH VẾT THƯƠNG",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1-7HaePEBcoPHMAy-DXC1fMLfsudh_64H",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1-7HaePEBcoPHMAy-DXC1fMLfsudh_64H/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "13. VIÊM PHÚC MẠC",
+      "type": "presentation",
+      "video": "https://drive.google.com/open?id=1_ZTmJKB-wcH9Lu8UcGREjswiLgLDAeeQ",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1_ZTmJKB-wcH9Lu8UcGREjswiLgLDAeeQ/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "18. Áp xe gan 2022",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1UXDzDUWn2DUO3YkCfAZlcMUsPSgS2R80",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1UXDzDUWn2DUO3YkCfAZlcMUsPSgS2R80/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "ÁP XE GAN",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1yfNrbWogC0sfWlqk8r0V8LwTHhZcEWcW",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1yfNrbWogC0sfWlqk8r0V8LwTHhZcEWcW/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "X- QUANG NGỰC",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1xmU2geKaC4mZO8Ml3EZRCEmHxQFDxDEe",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1xmU2geKaC4mZO8Ml3EZRCEmHxQFDxDEe/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "CT NGỰC 2nd",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1ikS7H1--vZgBp0FWxCal8cyqVyl4InaV",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1ikS7H1--vZgBp0FWxCal8cyqVyl4InaV/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "Trĩ",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1up4kpe23TZMcO4PpSjrQ3oSAYlgtFmHV",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1up4kpe23TZMcO4PpSjrQ3oSAYlgtFmHV/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "XQUANG-CT-BỤNG-CƠ-BẢN",
+      "type": "presentation",
+      "video": "https://drive.google.com/open?id=1oYdjupk7F9ZuS2juw5jLj9TL6jYTBoht",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1oYdjupk7F9ZuS2juw5jLj9TL6jYTBoht/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "23.1 Ung thư dạ dày",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1BDwmw4zHLDnNYVWa90xtqirFqb62yDef",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1BDwmw4zHLDnNYVWa90xtqirFqb62yDef/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "1. Nhiễm trùng ngoại khoa và kháng sinh trong PT",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1R0egVdBpEWvunDHdNJRwSPuhT-JWhynh",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1R0egVdBpEWvunDHdNJRwSPuhT-JWhynh/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "11. Đau bụng cấp dạy Y6 năm 2022",
+      "type": "presentation",
+      "video": "https://drive.google.com/open?id=1gAMzDh87ch5RIrSGhb42GCzbtQXdYght",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1gAMzDh87ch5RIrSGhb42GCzbtQXdYght/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "Lichtenstein",
+      "type": "document",
+      "video": "https://drive.google.com/open?id=1xj_SFIc_kU0ogH67zIIK5v_XVhp2oOJz",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1xj_SFIc_kU0ogH67zIIK5v_XVhp2oOJz/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "5. Chấn thương - vết thương bụng",
+      "type": "presentation",
+      "video": "https://drive.google.com/open?id=1X27Bh_lI4MrUJBhLDsr_PoTI9_zUHAsa",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1X27Bh_lI4MrUJBhLDsr_PoTI9_zUHAsa/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "11. Sốc bài giảng Y6 2024",
+      "type": "presentation",
+      "video": "https://drive.google.com/open?id=1ou7SV2UWJ0J_L_F_-S-37k--nvzxvxt9",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1ou7SV2UWJ0J_L_F_-S-37k--nvzxvxt9/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "CHẤN THƯƠNG, VẾT THƯƠNG NGỰC",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1lgg4WX2SS8exuhLvwwGUgw0GyjB0POnC",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1lgg4WX2SS8exuhLvwwGUgw0GyjB0POnC/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "Viêm tuỵ cấp BD 2023",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1HWe508wkbAskK6QeyyBfFWfp-OS4BGxG",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1HWe508wkbAskK6QeyyBfFWfp-OS4BGxG/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "6. CHUẨN BỊ BN TRƯỚC MỔ. CHĂM SÓC BN SAU MỔ",
+      "type": "presentation",
+      "video": "https://drive.google.com/open?id=1kEQSUfxY7gzJZbg4LLErerbWhvGNSmBG",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1kEQSUfxY7gzJZbg4LLErerbWhvGNSmBG/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "13. VIÊM RUỘT THỪA",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1dvU6OlwPclqLRLshJOo8ypiv6n3FMGB2",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1dvU6OlwPclqLRLshJOo8ypiv6n3FMGB2/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    },
+    {
+      "title": "Kiểm soát đường huyết trong phẫu thuật BD",
+      "type": "pdf",
+      "video": "https://drive.google.com/open?id=1ytPwwMnjJFhrffFRDvpEelTIU08fDB4n",
+      "iframe": "<iframe src=\"https://drive.google.com/file/d/1ytPwwMnjJFhrffFRDvpEelTIU08fDB4n/preview\" width=\"100%\" height=\"100%\" allow=\"autoplay\"></iframe>",
+      "isFree": false
+    }
+  ]
+}]
+
+

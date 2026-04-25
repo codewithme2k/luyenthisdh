@@ -6,8 +6,19 @@ export default async function Course() {
   const data = await db.order.findMany({
     orderBy: { createdAt: "desc" },
     include: {
-      Membership: true,
-      user: true,
+     Membership: {
+      select: {
+        plan: true,
+        isActive: true,
+      },
+    },
+    user: {
+      select: {
+        id: true,
+        email: true,
+        name: true,
+      },
+    },
     },
   });
 

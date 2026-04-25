@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { EOrderStatus } from "@/generated/prisma";
+import { EOrderStatus, EVipPlan } from "@/generated/prisma";
 
 export const POSTS_PER_PAGE = 9;
 
@@ -127,3 +127,28 @@ export const baseButtonClassName =
 
 export const primaryButtonClassName = `bg-primary text-white dark:bg-primary button-styles ${baseButtonClassName}`;
 export const commonButtonClassName = `${baseButtonClassName} w-[140px] ml-auto bg-primary dark:bg-foreground hover:bg-destructive dark:hover:bg-primary"`;
+export const PlanStatus: Record<
+  EVipPlan,
+  {
+    text: string;
+    className: string;
+  }
+> = {
+  MONTHLY: {
+    text: "Gói tháng",
+    className: "bg-primary text-foreground",
+  },
+
+  HALF_YEAR: {
+    text: "Gói 6 tháng",
+    className: "bg-orange-600 text-foreground",
+  },
+  YEARLY: {
+    text: "Gói năm",
+    className: "bg-red-600 text-foreground",
+  },
+  LIFETIME: {
+    text: "Vĩnh viễn",
+    className: "bg-red-600 text-foreground",
+  },
+};

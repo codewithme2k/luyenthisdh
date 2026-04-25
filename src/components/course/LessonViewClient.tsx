@@ -120,7 +120,7 @@ export default function LessonViewClient({
 
           <div className="h-5 w-px bg-slate-200 dark:bg-slate-800"></div>
 
-          <Link href={`/course/${lesson.lecture?.course?.slug}`}>
+          <Link href={`/courses/${lesson.lecture?.course?.slug}`}>
             <Button
               variant="ghost"
               size="sm"
@@ -213,9 +213,9 @@ export default function LessonViewClient({
                             onClick={() =>
                               canAccess
                                 ? router.push(
-                                    `/course/${lesson.lecture.course.slug}/lesson/${les.slug}`,
+                                    `/courses/${lesson.lecture.course.slug}/lesson/${les.slug}`,
                                   )
-                                : toast.error("Cần VIP")
+                                : toast.error("Cần đăng nhập và mua gói thành viên để xem khoá học")
                             }
                             className={`flex items-center gap-3 p-3 px-5 mx-1 rounded-xl cursor-pointer transition-all ${
                               isActive
