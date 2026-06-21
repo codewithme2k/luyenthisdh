@@ -16,16 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Search,
-  Filter,
-  Plus,
-  Minus,
-  Info,
-  Droplet,
-  Stethoscope,
-  Pill,
-} from "lucide-react";
+import { Search, Info, Droplet, Stethoscope, Pill } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Badge = ({
